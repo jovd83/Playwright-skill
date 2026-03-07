@@ -55,13 +55,13 @@ git clone https://github.com/testdino-hq/playwright-skill.git
 Move the `playwright-skill` folder to the appropriate location where your AI assistant looks for custom skills:
 
 - **System-wide (Generic Agents):** Typically placed in a shared directory like `~/.agents/skills/`.
-- **for a specific ide:** Copy the folder into `~/.cursor/skills/`, 
-*Note: Check the documentation of your specific AI assistant for the exact directory paths it supports for injecting local skill files. i.e.: 
--- Google antigravity: https://antigravity.google/docs/skills 
--- Cursor: https://cursor.dev/docs/skills 
--- Visual Studio Code: https://code.visualstudio.com/docs/copilot/customization/agent-skills
--- JetBrains: https://plugins.jetbrains.com/plugin/29975-agent-skills-manage
--- OpenClaw: https://docs.openclaw.ai/tools/skills*
+- **For a specific IDE:** Copy the folder into `~/.cursor/skills/`.
+  *Note: Check the documentation of your specific AI assistant for the exact directory paths it supports for injecting local skill files. i.e.:*
+  - *Google antigravity: https://antigravity.google/docs/skills*
+  - *Cursor: https://cursor.dev/docs/skills*
+  - *Visual Studio Code: https://code.visualstudio.com/docs/copilot/customization/agent-skills*
+  - *JetBrains: https://plugins.jetbrains.com/plugin/29975-agent-skills-manage*
+  - *OpenClaw: https://docs.openclaw.ai/tools/skills*
 
 ## Skills Overview
 
