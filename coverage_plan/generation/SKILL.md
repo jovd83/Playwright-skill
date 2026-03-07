@@ -12,16 +12,18 @@ Ensure that you have successfully completed the `playwright-analysis-requirement
 
 ## 2. Generate the Scenarios
 For each accepted Epic, User Story, or AC, generate a list of distinct test scenarios.
-You must cover (if usefull):
-1. **Happy Paths (MSS)**: The primary and most common workflows using standard/required data.
-2. **Alternative Paths (EXT)**: Valid deviations, such as including optional fields or different valid input combinations.
-3. **Negative/Error Paths (ERR)**: Form validation errors, unauthorized access, invalid inputs, and error handling.
-4. **Boundary Values**: Limits, maximum inputs, and edge cases.
+You MUST aim for functional completeness. Do not restrict yourself to just one "happy path" per requirement.
+
+**Coverage Guidelines**:
+1. **Standard workflows**: The primary and most common usage paths.
+2. **Alternative Variations**: Valid deviations, such as including optional fields, using different valid input combinations, or different user roles.
+3. **Resilience & Error Handling**: Validation errors, invalid inputs, unauthorized states, and error recovery.
+4. **Data Boundaries**: Limits, maximum/minimum inputs, and edge cases.
 
 **Decision Logic for Testing Depth**:
-- **Complex/High-Risk Features**: (e.g., Auth, Payments, CRUD) **MUST** have multiple scenarios (MSS, EXT, ERR).
-- **Trivial/Low-Risk Features**: (e.g., static "About" page, simple display labels) A single Happy Path (MSS) is sufficient.
-- **AI Discretion**: Evaluate the requirement's complexity. If a story has no optional fields and no logical error paths, do not force redundant tests. Aim for high-fidelity coverage without over-engineering.
+- **High-Value/Logic-Heavy Features**: (e.g., Auth, Payments, CRUD, Multi-step forms) Always provide a suite of scenarios covering both success and failure modes. 
+- **Simple UI-Only Features**: (e.g., static "About" page, simple display labels) A single verification is sufficient.
+- **AI Principle**: If a requirement has inputs or business logic, it almost always has more than one meaningful execution path. Do not force redundant tests, but never omit meaningful "unhappy" or "alternative" paths just to minimize effort. Aim for high-fidelity coverage that builds confidence.
 
 ## 3. Formatting the Plan
 Structure the output using markdown tables mapping the `Requirement/AC ID` to the `Proposed Test Scenario` and the `Execution Type` (UI / API / Component).

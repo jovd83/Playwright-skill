@@ -63,12 +63,13 @@ Allows passing structured arrays directly within a single step (represented with
 - Avoid UI-specific jargon (e.g., "Given I click the blue div with id user-form") and focus on behavior (e.g., "Given the user submits the form").
 - Add specific requirement tags (e.g., `@US-101`) above the Scenario.
 
-**CRITICAL**: You must generate multiple scenarios for each requirement to ensure robustness. A 1-to-1 mapping (one story to one test) is usually insufficient. For every User Story/Requirement, generate **at least 3 scenarios** (unless trivial):
-1. **MSS (Main Success Scenario)**: The happy path using standard data.
-2. **EXT (Extension/Variation)**: Valid variations (e.g., required + optional fields).
-3. **ERR (Error/Negative)**: Invalid inputs, validation errors, or unauthorized states.
+**CRITICAL**: You MUST aim for functional completeness. Do not restrict yourself to just one "happy path" per requirement. 
 
-Use **Scenario Outline** and **Examples** where appropriate to cover multiple data variations efficiently.
+**Behavioral Coverage Guidelines**:
+- **Standard Behavior**: The primary success path.
+- **Variations & Alternatives**: Different data sets (using `Scenario Outline`), optional steps, or different user roles.
+- **Resilience & Errors**: How the system behaves when things go wrong (validation errors, unauthorized access).
+- **Core Principle**: If a behavior involves business logic or user input, there is almost always more than one meaningful scenario to test. Aim to build high confidence through diverse behavioral coverage rather than following a fixed count.
 
 ## Usage
 Produce this documentation inside a `docs/features/` or `tests/features/` folder as instructed by the user. Do not write the Playwright step definitions until this scenario is approved.

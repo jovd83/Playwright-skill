@@ -5,12 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.1.0] - Unreleased
+## [1.2.0] - Unreleased
+
+### Added
+- 
+
+### Changed
+- 
+
+### Fixed
+- 
+
+### Removed
+- 
+
+## [1.1.0] - 2026-03-07
 
 ### Added
 - Expanded specific IDE documentation links (Cursor, VS Code, JetBrains, OpenClaw) in `README.md`.
 
 ### Changed
+- Softened rigidity of scenario generation instructions in `coverage_plan` and `documentation` skills.
+- Replaced mandatory "MSS/EXT/ERR" classification with guidelines for "Functional Completeness" and meaningful variations.
+- Removed fixed "at least 3 scenarios" count in BDD documentation to allow for better risk-based coverage.
+- Updated descriptive scenario naming requirements in TDD documentation.
 - Personalized installation instructions in `README.md` to reference `jovd83`'s fork repository directly.
 
 ### Fixed

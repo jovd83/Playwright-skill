@@ -15,9 +15,9 @@ To maintain a scalable documentation suite, tests **must** be stored in a hierar
 - **Sub-folders**: One folder per Epic or Feature (matching the `tests/` automation structure).
 - **Files**: One `.md` file per **test scenario**. Files should be grouped in sub-folders named after the User Story or Feature they cover.
 **Decision Logic for Testing Depth**:
-- **Complex/High-Risk Features**: (e.g., Auth, Payments, CRUD) **MUST** have multiple scenarios (MSS, EXT, ERR).
-- **Trivial/Low-Risk Features**: (e.g., static "About" page, simple display labels) A single Happy Path (MSS) is sufficient.
-- **AI Discretion**: Evaluate the requirement's complexity. If a story has no optional fields and no logical error paths, do not force redundant tests. Aim for high-fidelity coverage without over-engineering.
+- **High-Value/Logic-Heavy Features**: (e.g., Auth, Payments, CRUD, Multi-step forms) Always provide a suite of scenarios covering both success and failure modes. 
+- **Simple UI-Only Features**: (e.g., static "About" page, simple display labels) A single verification is sufficient.
+- **AI Principle**: If a requirement has inputs or business logic, it almost always has more than one meaningful execution path. Do not force redundant tests, but never omit meaningful "unhappy" or "alternative" paths just to minimize effort. Aim for high-fidelity coverage that builds confidence.
 
 **Example Structure:**
 ```text
@@ -42,7 +42,7 @@ The `Test script` field must provide a direct link to the automated execution po
 
 When asked to document a test case in TDD format, you must generate a markdown document with the following fields:
 
-- **title**: Informative, unique, and self-explanatory. Include requirement reference, test suite ID, and classification (MSS, EXT, ERR).
+- **title**: Informative, unique, and self-explanatory. Include requirement reference and a descriptive scenario name (e.g. classification like MSS, EXT, ERR is optional but recommended for clarity).
 - **description**: A concise overview of the test script's purpose.
 - **test_suite**: The organizational group (Feature/Epic name).
 - **Covered requirement**: The requirement, User Story, or AC reference being validated.

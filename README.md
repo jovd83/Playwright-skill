@@ -261,7 +261,7 @@ This section provides a detailed index of all AI skills and deep-dive guides. Th
 ### 3. Requirements & Planning
 
 - **[analysis/SKILL.md](analysis/SKILL.md)**: High-level skill for extracting testable requirements from documentation and Jira.
-- **[coverage_plan/generation/SKILL.md](coverage_plan/generation/SKILL.md)**: Logic for deriving a functional coverage plan (Happy, Alternative, Negative paths).
+- **[coverage_plan/generation/SKILL.md](coverage_plan/generation/SKILL.md)**: Logic for deriving functionally complete coverage plans covering standard, alternative, and resilience paths.
 - **[coverage_plan/review/SKILL.md](coverage_plan/review/SKILL.md)**: Orchestration for a human-in-the-loop review session of the proposed testing plan.
 - **[coverage_plan/auto-sync/SKILL.md](coverage_plan/auto-sync/SKILL.md)**: Keeping plans and traceability in sync with actual runs.
 
