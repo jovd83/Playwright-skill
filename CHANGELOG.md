@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0] - Unreleased
 
 ### Added
-- 
+- Expanded specific IDE documentation links (Cursor, VS Code, JetBrains, OpenClaw) in `README.md`.
 
 ### Changed
 - 

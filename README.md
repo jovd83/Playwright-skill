@@ -40,19 +40,6 @@ npx skills add <your-github-username>/playwright-skill/reporters
 npx skills add <your-github-username>/playwright-skill/reporting
 ```
 
-### Step 3: IDE-Specific Setup
-We have also included specific skills that guide the setup of AI-assisted testing environments inside popular IDEs. These skills will help you initialize Playwright and configure your AI plugins correctly.
-
-**For VSCode with OpenAI Codex / GitHub Copilot:**
-```bash
-npx skills add <your-github-username>/playwright-skill/installers/vscode-codex
-```
-
-**For IntelliJ IDEA with Junie:**
-```bash
-npx skills add <your-github-username>/playwright-skill/installers/intellij-junie
-```
-
 Once installed, your AI agent will automatically reference the `SKILL.md` files imported into your workspace when you ask it testing-related questions!
 
 ### Manual Installation (Alternative)
@@ -69,7 +56,12 @@ Move the `playwright-skill` folder to the appropriate location where your AI ass
 
 - **System-wide (Generic Agents):** Typically placed in a shared directory like `~/.agents/skills/`.
 - **for a specific ide:** Copy the folder into `~/.cursor/skills/`, 
-*Note: Check the documentation of your specific AI assistant for the exact directory paths it supports for injecting local skill files. i.e.: https://antigravity.google/docs/skills *
+*Note: Check the documentation of your specific AI assistant for the exact directory paths it supports for injecting local skill files. i.e.: 
+-- Google antigravity: https://antigravity.google/docs/skills 
+-- Cursor: https://cursor.dev/docs/skills 
+-- Visual Studio Code: https://code.visualstudio.com/docs/copilot/customization/agent-skills
+-- JetBrains: https://plugins.jetbrains.com/plugin/29975-agent-skills-manage
+-- OpenClaw: https://docs.openclaw.ai/tools/skills*
 
 ## Skills Overview
 
