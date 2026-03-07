@@ -13,7 +13,7 @@ This repository provides Playwright skills designed for AI coding assistants (li
 You can add all the core skills and the orchestrator at once using the `npx skills` command:
 
 ```bash
-npx skills add <your-github-username>/playwright-skill
+npx skills add jovd83/playwright-skill
 ```
 
 ### Step 2: Customizing Your Setup
@@ -21,23 +21,23 @@ If you only need specific functionalities (e.g., just the reporters or just the 
 
 **Core & CI/CD**
 ```bash
-npx skills add <your-github-username>/playwright-skill/core
-npx skills add <your-github-username>/playwright-skill/ci
-npx skills add <your-github-username>/playwright-skill/pom
-npx skills add <your-github-username>/playwright-skill/migration
-npx skills add <your-github-username>/playwright-skill/playwright-cli
+npx skills add jovd83/playwright-skill/core
+npx skills add jovd83/playwright-skill/ci
+npx skills add jovd83/playwright-skill/pom
+npx skills add jovd83/playwright-skill/migration
+npx skills add jovd83/playwright-skill/playwright-cli
 ```
 
 **Test Management Extensions**
 ```bash
-npx skills add <your-github-username>/playwright-skill/orchestrator
-npx skills add <your-github-username>/playwright-skill/analysis
-npx skills add <your-github-username>/playwright-skill/coverage_plan
-npx skills add <your-github-username>/playwright-skill/documentation
-npx skills add <your-github-username>/playwright-skill/transformers
-npx skills add <your-github-username>/playwright-skill/mappers
-npx skills add <your-github-username>/playwright-skill/reporters
-npx skills add <your-github-username>/playwright-skill/reporting
+npx skills add jovd83/playwright-skill/orchestrator
+npx skills add jovd83/playwright-skill/analysis
+npx skills add jovd83/playwright-skill/coverage_plan
+npx skills add jovd83/playwright-skill/documentation
+npx skills add jovd83/playwright-skill/transformers
+npx skills add jovd83/playwright-skill/mappers
+npx skills add jovd83/playwright-skill/reporters
+npx skills add jovd83/playwright-skill/reporting
 ```
 
 Once installed, your AI agent will automatically reference the `SKILL.md` files imported into your workspace when you ask it testing-related questions!
@@ -48,7 +48,7 @@ If you prefer not to use `npx skills`, you can manually download this repository
 **1. Download the Files**
 Download or clone this repository to your local machine:
 ```bash
-git clone https://github.com/testdino-hq/playwright-skill.git
+git clone https://github.com/jovd83/Playwright-skill.git
 ```
 
 **2. Place the Skills Folder**

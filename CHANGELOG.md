@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Expanded specific IDE documentation links (Cursor, VS Code, JetBrains, OpenClaw) in `README.md`.
 
 ### Changed
-- 
+- Personalized installation instructions in `README.md` to reference `jovd83`'s fork repository directly.
 
 ### Fixed
 - 
