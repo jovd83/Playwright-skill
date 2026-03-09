@@ -1,6 +1,6 @@
-# Playwright Skill Guides
+# Playwright Skill Pack
 
-Playwright guides for E2E, API, component, visual, accessibility, and security testing, plus CLI automation. **70+ guides** with TypeScript and JavaScript examples.
+Playwright skills for E2E, API, component, visual, accessibility, and security testing, plus CLI automation. **70+ skills** for AI coding assistants.
 
 ## What are Agent Skills?
 [Agent Skills](https://github.com/agentskills/agentskills) are a simple, open format for giving AI agents capabilities and expertise. They are essentially folders of instructions, scripts, and resources that agents can discover and use to perform better at specific tasks. Write once, use everywhere!
