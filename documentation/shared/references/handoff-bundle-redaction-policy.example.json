@@ -1,0 +1,14 @@
+{
+  "allow_paths": [
+    "bundle.documents.handover_markdown"
+  ],
+  "deny_paths": [
+    "bundle.source.docs_root"
+  ],
+  "extra_sensitive_keywords": [
+    "resume_token"
+  ],
+  "extra_redaction_regexes": [
+    "s3cr3t-[A-Za-z0-9-]+"
+  ]
+}

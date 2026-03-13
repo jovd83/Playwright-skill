@@ -1,0 +1,30 @@
+name: Handoff Bundle Checks
+
+on:
+  push:
+    paths:
+      - ".github/workflows/handoff-bundle-checks.yml"
+      - "documentation/handover/**"
+      - "documentation/session-state/**"
+      - "documentation/shared/**"
+  pull_request:
+    paths:
+      - ".github/workflows/handoff-bundle-checks.yml"
+      - "documentation/handover/**"
+      - "documentation/session-state/**"
+      - "documentation/shared/**"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run handoff CI checks
+        run: python documentation/shared/scripts/run_handoff_ci_checks.py --format text

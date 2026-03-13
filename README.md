@@ -272,7 +272,8 @@ This section provides a detailed index of all AI skills and deep-dive guides. Th
 - **[documentation/test_cases/plain_text/SKILL.md](documentation/test_cases/plain_text/SKILL.md)**: Informal scenario drafting for quick feedback loops.
 - **[documentation/tests/SKILL.md](documentation/tests/SKILL.md)**: Automatically adding plain-English JSDoc comments to existing automation code.
 - **[documentation/root_cause/SKILL.md](documentation/root_cause/SKILL.md)**: Structured approach to documenting bug investigations and environment resolutions.
-- **[documentation/handover/SKILL.md](documentation/handover/SKILL.md)**: Structured handover protocol for documenting actions taken, skills used, and generating a formal handover document.
+- **[documentation/handover/SKILL.md](documentation/handover/SKILL.md)**: Structured handover protocol for documenting completed work, remaining work, blockers, and exact resume instructions.
+- **[documentation/session-state/SKILL.md](documentation/session-state/SKILL.md)**: Live session-state protocol for maintaining the current resume point for a human or AI operator.
 
 ### 5. Playwright CLI (Manual & Agentic Hub)
 
@@ -315,7 +316,8 @@ A massive **thank you** to the original authors at [testdino-hq](https://github.
 This local version has been heavily adapted and expanded to act as a complete orchestrator-level skill set. The key differences and additions relative to the upstream repository include:
 - **Core Expansions:** Added new guides for API handler hardening, contract-first mocking, locator resilience, preflight checks, and stability diagnostics.
 - **Coverage & Planning (`coverage_plan/`):** Entirely new subskills for generating coverage plans, human-in-the-loop review generation, and test sync tracking.
-- **Formal Documentation (`documentation/`):** Added structures for BDD/TDD traceability, handover generation, and structured root-cause analysis.
+- **Formal Documentation (`documentation/`):** Added structures for BDD/TDD traceability, handover generation, live session-state tracking, and structured root-cause analysis.
+- **Human/AI Handoff Tooling:** Added deterministic handover/session-state scripts for resume-state tracking, audit/repair, leasing, readiness checks, archive/restore, portable bundle export/import, trust policies, redaction policies, signing, and CI validation.
 - **Test Management Integrations:** Added full suites (Mappers, Reporters, and Transformers) connecting directly to Enterprise systems like **TestLink**, **TestRail**, **Xray**, and **Zephyr**.
 - **Orchestration & Tools:** Added an overarching orchestrator skill, stakeholder reporting, request tracking, and IDE-specific installers for VS Code and IntelliJ.
 

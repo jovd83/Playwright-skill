@@ -1,0 +1,5 @@
+{
+  "require_portable_bundle_policies": true,
+  "require_trust_policy": true,
+  "require_redaction_policy": true
+}

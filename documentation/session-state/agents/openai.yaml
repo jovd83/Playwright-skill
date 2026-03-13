@@ -1,0 +1,4 @@
+interface:
+  display_name: "Session State"
+  short_description: "Begin, end, assess, inspect, sign, verify, trust, repair, report, export, and import session state"
+  default_prompt: "Use $session-state to begin, end, assess, inspect, sign, verify, trust, report, repair, update, validate, summarize, archive, restore, export, or import the live Playwright resume state for this task."

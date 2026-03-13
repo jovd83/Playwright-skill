@@ -1,1 +1,3 @@
 requested_improvements/
+__pycache__/
+*.pyc

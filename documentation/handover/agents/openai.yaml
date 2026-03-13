@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handover"
+  short_description: "Begin, end, assess, inspect, sign, verify, trust, repair, report, export, and import handoffs"
+  default_prompt: "Use $handover to begin, end, assess, inspect, sign, verify, trust, report, repair, update, validate, summarize, archive, restore, export, or import the current Playwright handoff for this task."

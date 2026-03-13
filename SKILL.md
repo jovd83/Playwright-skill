@@ -150,7 +150,8 @@ description: Battle-tested Playwright patterns for E2E, API, and visual testing,
 | **BDD / Gherkin** | [SKILL.md](documentation/test_cases/bdd/SKILL.md) | Given/When/Then scenarios with Examples and Tags |
 | **Plain Text** | [SKILL.md](documentation/test_cases/plain_text/SKILL.md) | Concise, human-readable test descriptions |
 | **Code Documentation** | [SKILL.md](documentation/tests/SKILL.md) | Generating JSDoc/TSDoc for Playwright automation code |
-| **Handover** | [SKILL.md](documentation/handover/SKILL.md) | Structured handover doc at the end of every task |
+| **Handover** | [SKILL.md](documentation/handover/SKILL.md) | Structured handover doc with completed work, remaining work, blockers, and resume steps |
+| **Session State** | [SKILL.md](documentation/session-state/SKILL.md) | Live resume-state file for human and AI handoff during in-progress work |
 
 ### External Tool Integrations (Test Management)
 

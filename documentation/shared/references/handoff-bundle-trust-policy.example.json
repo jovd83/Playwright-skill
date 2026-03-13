@@ -1,0 +1,81 @@
+{
+  "allow_inspection_warnings": false,
+  "allow_source_not_ready": false,
+  "allow_active_lease": false,
+  "allow_expired_lease": false,
+  "max_age_hours": 24,
+  "allowed_updated_by": [
+    "codex"
+  ],
+  "allowed_next_owner": [
+    "qa-reviewer",
+    "None"
+  ],
+  "require_signature": true,
+  "allowed_signature_schemes": [
+    "sshsig"
+  ],
+  "allowed_signers": [
+    "codex"
+  ],
+  "allowed_key_ids": [
+    "primary"
+  ],
+  "allowed_public_key_fingerprints": [],
+  "revoked_signers": [],
+  "revoked_key_ids": [],
+  "revoked_public_key_fingerprints": [],
+  "signature_secret_env": "HANDOFF_BUNDLE_SIGNING_SECRET",
+  "default_profile": "dev",
+  "profiles": {
+    "dev": {
+      "allow_inspection_warnings": true,
+      "allow_source_not_ready": true,
+      "allow_active_lease": true,
+      "require_signature": true,
+      "allowed_signature_schemes": [
+        "hmac-sha256"
+      ],
+      "allowed_signers": [
+        "codex"
+      ],
+      "allowed_key_ids": [
+        "primary"
+      ],
+      "allowed_public_key_fingerprints": [],
+      "revoked_signers": [],
+      "revoked_key_ids": [],
+      "revoked_public_key_fingerprints": [],
+      "allowed_updated_by": [],
+      "allowed_next_owner": [],
+      "max_age_hours": null,
+      "signature_secret_env": "HANDOFF_BUNDLE_SIGNING_SECRET"
+    },
+    "prod": {
+      "require_signature": true,
+      "allowed_signature_schemes": [
+        "sshsig"
+      ],
+      "allowed_signers": [
+        "release-bot"
+      ],
+      "allowed_key_ids": [
+        "prod-ssh"
+      ],
+      "allowed_public_key_fingerprints": [
+        "SHA256:replace-me"
+      ],
+      "revoked_signers": [],
+      "revoked_key_ids": [],
+      "revoked_public_key_fingerprints": [],
+      "allow_inspection_warnings": false,
+      "allow_source_not_ready": false,
+      "allow_active_lease": false,
+      "allow_expired_lease": false,
+      "allowed_updated_by": [],
+      "allowed_next_owner": [],
+      "max_age_hours": 24,
+      "signature_secret_env": null
+    }
+  }
+}
