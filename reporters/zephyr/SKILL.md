@@ -1,16 +1,28 @@
 ---
 name: playwright-reporter-zephyr
-description: A skill to use Zephyr Scale APIs to report Playwright test execution results.
+description: Test-management reporting skill for Zephyr Scale. Use when Codex needs to publish Playwright execution results into Zephyr using the project's mappings, run configuration, and chosen reporting flow.
 ---
 
-# Zephyr Scale API Reporter
+# Zephyr Reporter
 
-This skill interacts with the Zephyr Scale REST API to publish test results.
+Use this skill when the goal is to push execution outcomes into Zephyr Scale.
 
-## Action
-When requested to report results to Zephyr:
-1. Ask the user for the Zephyr Bearer Token.
-2. Install the `@gurglosa/playwright-zephyr-jira-reporter` or `playwright-zephyr` npm library.
-3. Configure the reporter in `playwright.config.ts`.
-4. Parse the local Playwright results. Match the `CYP-T123:` keys to determine the target Test Cases.
-5. Formulate the JSON payload for the `/testruns` endpoint or let the reporter plugin handle the Jira test cycle sync automatically.
+## Inputs
+
+- Zephyr connection details and credentials,
+- the local result source,
+- the mapping from automated tests to Zephyr keys,
+- any target cycle, execution, or environment context required by the project.
+
+## Workflow
+
+1. Confirm the mapping and target execution context.
+2. Configure the reporting path or client the project uses.
+3. Publish results securely.
+4. Return a concise report of what was sent and what could not be reported.
+
+## Guardrails
+
+- Never echo secrets back in plain text.
+- Do not report results for tests that cannot be mapped confidently.
+- Call out partial publication explicitly.

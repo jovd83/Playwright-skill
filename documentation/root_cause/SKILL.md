@@ -1,21 +1,39 @@
 ---
 name: playwright-documentation-root-cause
-description: A skill to perform root cause analysis on failed test runs and generate developer-friendly diagnostics.
+description: Failure-analysis skill for Playwright runs. Use when Codex needs to investigate a failing test, distinguish likely product bugs from test issues, and produce a concise developer-focused root-cause report backed by evidence.
 ---
 
-# Root Cause Analysis Documentation
+# Playwright Root Cause Analysis
 
-This skill accelerates debugging by automatically triaging test failures.
+Use this skill when a failure needs explanation, not just rerunning.
 
-## Action
-When requested to analyze a failure:
-1. Read the Playwright trace, console outputs, and failure logs.
-2. Determine: "Is it the test or a bug?"
-   - **Flaky Test:** E.g., a timeout waiting for a network request, or a brittle selector.
-   - **True Bug:** The UI behavior changed, an API responded with a 500, or a feature is broken.
-3. Generate a Root Cause Report for the human-in-the-loop:
-   - **Test Name:** Which test failed.
-   - **The Error:** The literal error from Playwright.
-   - **Triage Decision:** Bug OR Flaky Test.
-   - **Evidence:** Snippets of the trace or DOM that prove the decision.
-   - **Proposed Fix:** What should be done to fix the test or the application.
+## Inputs
+
+- failing test output,
+- trace artifacts, screenshots, videos, or HTML reports when available,
+- related console, network, or application logs,
+- recent code or requirement changes if they help explain the failure.
+
+## Analysis Workflow
+
+1. Identify the failing assertion or stopping point.
+2. Reconstruct what the app and test were each expecting.
+3. Classify the issue as likely `product bug`, `test defect`, `environment issue`, or `possible flake`.
+4. Support the classification with concrete evidence.
+
+## Output Contract
+
+Provide:
+
+- `Failure`
+- `Most likely cause`
+- `Classification`
+- `Evidence`
+- `Recommended next action`
+- `Confidence`
+
+## Guardrails
+
+- Do not claim certainty when the evidence is mixed.
+- Separate observation from hypothesis.
+- If the right answer is "needs reproduction with more data," say that directly.

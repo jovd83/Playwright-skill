@@ -1,16 +1,28 @@
 ---
 name: playwright-mapper-testlink
-description: A skill to map TestLink unique IDs back to the local test documentation.
+description: Test-management mapping skill for TestLink. Use when Codex needs to apply authoritative TestLink case IDs back into local Playwright docs, titles, or annotations so the repository can trace automation to imported TestLink records.
 ---
 
 # TestLink Mapper
 
-After uploading test cases into TestLink, the platform generates unique External Test Case IDs (e.g., `TC-101`).
+Use this skill after TestLink has assigned IDs and the local repository needs to reflect them.
 
-## Action
-When requested to map TestLink IDs:
-1. Ask the user for the mapping list (Test Name -> TestLink ID).
-2. Scan the local test documentation and Playwright automation code (`.spec.ts` files).
-3. Annotate the test names by adding the ID between brackets `[ ]` at the beginning of the test name.
-   - Example TDD: `[TC-101] Verify user login...`
-   - Example Playwright: `test('[TC-101] Verify user login...', async () => {})`
+## Inputs
+
+- an authoritative mapping from local scenario names or paths to TestLink IDs,
+- the target markdown and automation files,
+- the team convention for where IDs belong in docs or test titles.
+
+## Output Contract
+
+Produce:
+
+- updated local docs or code references,
+- a summary of which IDs were applied where,
+- any ambiguous matches that still need human confirmation.
+
+## Guardrails
+
+- Do not invent IDs.
+- Do not overwrite an existing different ID without calling out the conflict.
+- Prefer annotations or title conventions already used by the repository.

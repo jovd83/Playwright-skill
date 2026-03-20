@@ -1,0 +1,4 @@
+interface:
+  display_name: "Coverage Auto-Sync"
+  short_description: "Synchronize coverage plans, IDs, and traceability after suite changes"
+  default_prompt: "Use $playwright-coverage-matrix-auto-sync to reconcile scenario IDs, traceability links, and summary counts after Playwright coverage or documentation changes."

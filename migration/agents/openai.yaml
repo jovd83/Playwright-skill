@@ -1,0 +1,4 @@
+interface:
+  display_name: "Playwright Migration"
+  short_description: "Plan and translate Cypress or Selenium suites into Playwright"
+  default_prompt: "Use $playwright-migration to map this existing test suite or framework pattern into a Playwright migration plan."

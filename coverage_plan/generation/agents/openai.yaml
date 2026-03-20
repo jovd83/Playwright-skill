@@ -1,0 +1,4 @@
+interface:
+  display_name: "Coverage Plan Generation"
+  short_description: "Turn requirements into a risk-aware Playwright coverage plan"
+  default_prompt: "Use $playwright-coverage-plan-generation to generate a structured Playwright coverage plan from the confirmed requirements."

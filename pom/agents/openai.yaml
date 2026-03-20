@@ -1,0 +1,4 @@
+interface:
+  display_name: "Playwright POM"
+  short_description: "Choose and structure fixtures, page objects, and helpers"
+  default_prompt: "Use $playwright-pom to decide how this Playwright test suite should separate fixtures, page objects, and helpers."

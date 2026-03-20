@@ -1,15 +1,28 @@
 ---
 name: playwright-transformer-xray
-description: A skill to transform natural language test cases into Xray compatible import formats (JSON/CSV).
+description: Legacy Playwright-specific alias for Xray case export. Prefer the standalone `test-artifact-export-skill` skill for transforming approved test cases into Xray-ready artifacts, and use this only when Playwright-local conventions must be preserved explicitly.
 ---
 
-# Transforming Test Cases to Xray
+# Xray Transformer
 
-This skill adapts standard documentation to the specific JSON structure required by Jira Xray.
+Use this skill to convert narrative test cases into Xray import artifacts.
 
-## Action
-When requested:
-1. Create a JSON payload with `testtype` set to "Manual" or "Cucumber" and wrapped inside a `tests` array.
-2. For Manual tests, convert TDD actions/expected results into Xray's `steps` array (mapping to `action`, `data`, and `result` fields).
-3. Connect any Requirement IDs to the Jira Issue Links field.
-4. Output the result to `xray_import.json`.
+## Inputs
+
+- source scenarios in TDD, BDD, or plain-text form,
+- whether the target should be `Manual` or `Cucumber` style,
+- project or requirement linkage details if they are already known.
+
+## Output Contract
+
+Produce:
+
+- an Xray-compatible payload,
+- or a field-mapping table showing how the source maps into Xray test fields and links.
+
+## Mapping Rules
+
+- use Xray test type intentionally,
+- preserve ordered steps and expected results for manual tests,
+- preserve tags and requirement links when they are available,
+- avoid inventing Jira linkage the user has not provided.

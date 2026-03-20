@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zephyr Mapper"
+  short_description: "Apply Zephyr keys back into local docs and automation"
+  default_prompt: "Use $playwright-mapper-zephyr to apply Zephyr test keys back into the local Playwright docs or code."

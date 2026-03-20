@@ -1,0 +1,4 @@
+interface:
+  display_name: "TestRail Transformer"
+  short_description: "Convert test-case docs into TestRail import artifacts"
+  default_prompt: "Use $playwright-transformer-testrail to convert these Playwright test cases into a TestRail import-ready format."

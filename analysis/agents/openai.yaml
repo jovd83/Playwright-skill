@@ -1,0 +1,4 @@
+interface:
+  display_name: "Playwright Analysis"
+  short_description: "Extract testable behaviors, risks, and open questions from requirements"
+  default_prompt: "Use $playwright-analysis-requirements to turn the available tickets, specs, or docs into a clear Playwright requirements baseline."

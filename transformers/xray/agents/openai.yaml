@@ -1,0 +1,4 @@
+interface:
+  display_name: "Xray Transformer"
+  short_description: "Convert test-case docs into Xray import artifacts"
+  default_prompt: "Use $playwright-transformer-xray to convert these Playwright test cases into an Xray import-ready format."

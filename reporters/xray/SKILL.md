@@ -1,16 +1,29 @@
 ---
 name: playwright-reporter-xray
-description: A skill to use Xray APIs to report Playwright test execution results.
+description: Test-management reporting skill for Xray. Use when Codex needs to publish Playwright execution results into Xray or Jira using the project's mappings, import format, and chosen reporting flow.
 ---
 
-# Xray API Reporter
+# Xray Reporter
 
-This skill handles importing execution results to Jira Xray.
+Use this skill when the goal is to push execution outcomes into Xray.
 
-## Action
-When requested:
-1. Ask the user for Jira Credentials (API token).
-2. Install the `@xray-app/playwright-junit-reporter` or `playwright-xray-helper` npm library.
-3. Configure the `playwright.config.ts` to output enriched JUnit or JSON.
-4. Submit the results to the Xray `/import/execution` REST endpoint using the custom reporter built-in uploading logic or curl.
-5. Verify the Jira issue was updated securely, and report back the Execution Issue ID.
+## Inputs
+
+- Xray or Jira connection details and credentials,
+- the local result source,
+- the mapping from automated tests to Xray keys,
+- the chosen import format or reporter path,
+- any target execution or project context required by the project.
+
+## Workflow
+
+1. Confirm the mapping and target execution context.
+2. Configure the reporting path or export format the project uses.
+3. Publish results securely.
+4. Return a concise report of what was sent and what could not be reported.
+
+## Guardrails
+
+- Never echo secrets back in plain text.
+- Do not report results for tests that cannot be mapped confidently.
+- Call out partial publication explicitly.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "TestLink Transformer"
+  short_description: "Convert test-case docs into TestLink import artifacts"
+  default_prompt: "Use $playwright-transformer-testlink to convert these Playwright test cases into a TestLink import-ready format."

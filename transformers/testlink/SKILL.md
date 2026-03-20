@@ -1,20 +1,29 @@
 ---
 name: playwright-transformer-testlink
-description: A skill to transform natural language test cases (TDD, BDD, Plain Text) into TestLink compatible import formats (XML/CSV).
+description: Legacy Playwright-specific alias for TestLink case export. Prefer the standalone `test-artifact-export-skill` skill for transforming approved test cases into TestLink-ready artifacts, and use this only when Playwright-local conventions must be preserved explicitly.
 ---
 
-# Transforming Test Cases to TestLink
+# TestLink Transformer
 
-This skill guides the process of serializing human-readable test documentation into TestLink's required XML structure for bulk importing test suites and test cases.
+Use this skill to convert narrative test cases into TestLink import artifacts.
 
-## Action
-When asked to transform test cases to TestLink format:
-1. Parse the Natural Language documentation (TDD, BDD, etc.).
-2. Generate an XML output mapping conforming to TestLink Document structure:
-   - Root node -> `<testcases>`
-   - Individual test -> `<testcase name="...">`
-   - `Title` -> `<summary>` or `<name>`
-   - `Preconditions` -> `<preconditions>`
-   - `Actions` -> `<steps><step><actions>`
-   - `Expected Results` -> `<steps><step><expectedresults>`
-3. Output the raw XML inside a `testlink_import.xml` file or present it to the user.
+## Inputs
+
+- source scenarios in TDD, BDD, or plain-text form,
+- the target TestLink structure if the project already uses one,
+- any required suite, section, or metadata conventions.
+
+## Output Contract
+
+Produce one of:
+
+- a TestLink-compatible XML payload,
+- a CSV-style mapping if that is the selected import path,
+- a field-mapping table when the user wants the transformation planned before generation.
+
+## Mapping Rules
+
+- map scenario title and summary consistently,
+- preserve preconditions, ordered steps, and expected results,
+- keep requirement identifiers where TestLink fields allow them,
+- call out any source fields that have no clean TestLink destination.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Playwright BDD Docs"
+  short_description: "Write Gherkin feature files and behavior scenarios"
+  default_prompt: "Use $playwright-documentation-bdd to express these Playwright requirements or planned tests as clean Gherkin scenarios."

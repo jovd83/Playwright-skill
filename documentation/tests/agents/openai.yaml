@@ -1,0 +1,4 @@
+interface:
+  display_name: "Automation Docs"
+  short_description: "Improve human-readable documentation in Playwright code"
+  default_prompt: "Use $playwright-documentation-tests to add high-signal comments or docblocks to the relevant Playwright automation files."

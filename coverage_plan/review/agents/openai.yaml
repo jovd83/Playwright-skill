@@ -1,0 +1,4 @@
+interface:
+  display_name: "Coverage Plan Review"
+  short_description: "Review, refine, and approve a Playwright coverage plan"
+  default_prompt: "Use $playwright-coverage-plan-review to present the proposed coverage plan, surface assumptions, and get the scope approved."

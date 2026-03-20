@@ -1,0 +1,4 @@
+interface:
+  display_name: "TestRail Mapper"
+  short_description: "Apply TestRail IDs back into local docs and automation"
+  default_prompt: "Use $playwright-mapper-testrail to apply TestRail case IDs back into the local Playwright docs or code."

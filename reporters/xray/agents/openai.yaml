@@ -1,0 +1,4 @@
+interface:
+  display_name: "Xray Reporter"
+  short_description: "Publish Playwright execution results to Xray"
+  default_prompt: "Use $playwright-reporter-xray to publish these Playwright execution results to Xray."

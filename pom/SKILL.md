@@ -1,31 +1,30 @@
 ---
 name: playwright-pom
-description: Page Object Model patterns for Playwright — when to use POM, how to structure page objects, and when fixtures or helpers are a better fit.
+description: Test-architecture skill for Playwright page objects, fixtures, and helpers. Use when Codex needs to decide whether to introduce a Page Object Model, how to structure page objects, and how to separate browser state, UI behavior, and stateless utilities cleanly.
 ---
 
-# Playwright Page Object Model
+# Playwright POM
 
-> Structure your test code for maintainability — know when POM helps and when simpler patterns win.
+Use this skill when the main decision is architectural rather than tactical.
 
-**2 guides** covering Page Object Model implementation and the decision framework for choosing between POM, fixtures, and helpers.
+## Decision Model
 
-## 🚨 MANDATORY ARCHITECTURE: The Triad 🚨
+- Use fixtures for setup, teardown, shared state, and authenticated contexts.
+- Use page objects to encapsulate repeated or complex UI behavior.
+- Use helpers only for stateless utilities such as data generation, formatting, or pure transformations.
+- Do not force page objects for every one-off interaction.
 
-All tests in this project MUST follow the **Triad Architecture**. This structure is designed to eliminate boilerplate, ensure maintainability, and prevent fragile tests.
+## Practical Rules
 
-1.  **Fixtures (`test.extend`)**: The **only** way to manage state, setup, and teardown. This includes authentication (`asUser`, `asAdmin`), database seeding, and providing Page Objects to the test.
-2.  **Page Object Models (POMs)**: Use POMs primarily to avoid repetition across tests or for complex UI logic. For simple, one-off test cases with no repetition, inline locators are acceptable. Repeated UI interactions MUST always be encapsulated in POMs.
-3.  **Stateless Helper Functions**: Pure utility functions with **NO browser interaction**. Used for data generation (e.g., `randomEmail`), calculations, or formatting. Never pass a `Page` object to a helper.
-4.  **Integrated Directory Layout**: All POMs, Fixtures, and Helpers MUST be stored within the `tests/` directory (e.g., `tests/page-objects/`, `tests/fixtures/`, `tests/helpers/`). Do not place them in the project root.
+1. Reach for a page object when the same UI behavior appears in multiple tests or when the page flow is complex enough to deserve a named abstraction.
+2. Keep assertions close to the test unless a reusable page-level assertion adds clarity.
+3. Avoid helpers that accept a `Page` or mutate browser state.
+4. Keep the testing support code organized with the tests it serves.
 
-## Guide Index
+## Read by Need
 
-| Topic | Guide |
+| Need | Guide |
 |---|---|
-| Page Object Model patterns | [page-object-model.md](page-object-model.md) |
-| POM vs fixtures vs helpers | [pom-vs-fixtures-vs-helpers.md](pom-vs-fixtures-vs-helpers.md) |
-| Architecture Decision | [core/test-architecture.md](../core/test-architecture.md) |
-
----
-
-**Summary Strategy**: If you are writing a test, you should only see POM methods and assertions. If you are setting up state, use a fixture. If you are generating data, use a helper. 
+| Page object design | [page-object-model.md](page-object-model.md) |
+| POM vs fixture vs helper tradeoffs | [pom-vs-fixtures-vs-helpers.md](pom-vs-fixtures-vs-helpers.md) |
+| Broader architecture decisions | [../core/test-architecture.md](../core/test-architecture.md) |

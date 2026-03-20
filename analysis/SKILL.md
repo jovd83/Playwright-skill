@@ -1,21 +1,50 @@
 ---
 name: playwright-analysis-requirements
-description: A skill to find and analyze requirements (epics, user stories, acceptance criteria) mapping to the current testing scope.
+description: Requirements-analysis skill for Playwright planning and implementation. Use when Codex needs to extract testable behaviors, acceptance criteria, risks, dependencies, or open questions from tickets, specs, markdown docs, or other requirement sources before writing tests or coverage plans.
 ---
 
-# Analysis & Requirements Skill
+# Playwright Requirements Analysis
 
-This skill guides you through the process of establishing the functional requirements baseline before testing begins.
+Use this skill to turn raw product or engineering artifacts into a trustworthy testing baseline.
 
-## 1. Information Gathering
-- Automatically search the repository context (Markdown files, Jira exports, issue tracking links, `docs/` folders) for the relevant Epics, User Stories, and Acceptance Criteria (AC).
-- Alternatively, if the user points you toward a specific document or ticket, read it thoroughly.
+## Inputs
 
-## 2. Requirement Extraction
-- Summarize the business logic into distinct, testable behaviors.
-- Ensure all edge cases mentioned in the AC are included in your analysis.
+Use the best available sources in this order:
 
-## 3. User Validation
-- Once you have aggregated the requirements, present them back to the user.
-- **Action Required**: Ask the user: "Is this summary of the Epic, User Stories, and Acceptance Criteria correct and complete? If not, where should I look for the missing information?"
-- **Blocker**: Do *not* proceed to the coverage plan or test authoring until the user confirms the requirements are correct.
+1. user-provided tickets, specs, or links,
+2. repository-local docs such as `docs/`, markdown files, issue exports, or feature notes,
+3. adjacent automation or product artifacts that clarify behavior.
+
+Do not keep searching indefinitely once you have enough evidence to form a reliable baseline.
+
+## Output Contract
+
+Produce a concise requirements baseline with these sections:
+
+1. `Confirmed behaviors`
+2. `Inferred behaviors`
+3. `Risks and edge cases`
+4. `Open questions or missing evidence`
+5. `Source evidence`
+
+When tabular output helps, use:
+
+| Requirement ID | Behavior | Evidence | Confidence | Notes |
+|---|---|---|---|---|
+
+## Rules
+
+- Separate confirmed facts from reasonable inference.
+- Normalize vague prose into testable behaviors.
+- Capture edge cases, authorization rules, data constraints, and failure modes when the source implies them.
+- Call out missing or contradictory evidence explicitly instead of hiding it inside the summary.
+
+## When to Pause
+
+- Pause for confirmation when the requirements are ambiguous enough to change the downstream plan materially.
+- If the user explicitly asked for a baseline only, stop after the analysis.
+- If the requirements are clear enough and the user asked for downstream planning in the same request, continue while marking assumptions.
+
+## Handoff
+
+Use the output of this skill as the input to [../coverage_plan/generation/SKILL.md](../coverage_plan/generation/SKILL.md) or to direct implementation work when the scope is already narrow.

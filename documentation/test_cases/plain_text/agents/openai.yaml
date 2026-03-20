@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plain Test Docs"
+  short_description: "Write lightweight human-readable scenario notes"
+  default_prompt: "Use $playwright-documentation-plaintext to document these Playwright scenarios in a lightweight plain-text form."

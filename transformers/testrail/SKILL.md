@@ -1,14 +1,27 @@
 ---
 name: playwright-transformer-testrail
-description: A skill to transform natural language test cases into TestRail compatible import formats (XML/CSV).
+description: Legacy Playwright-specific alias for TestRail case export. Prefer the standalone `test-artifact-export-skill` skill for transforming approved test cases into TestRail-ready artifacts, and use this only when Playwright-local conventions must be preserved explicitly.
 ---
 
-# Transforming Test Cases to TestRail
+# TestRail Transformer
 
-This skill structures test scenarios into the XML or CSV formats compatible with TestRail's import tool.
+Use this skill to convert narrative test cases into TestRail import artifacts.
 
-## Action
-When asked to generate TestRail imports:
-1. Extract metadata: Sections, Title, Preconditions.
-2. Structure the test steps and expected results via TestRail's custom steps template if using CSV (mapping to `Title`, `Preconditions`, `Steps`, `Expected Result`).
-3. Save the layout inside `testrail_import.xml` or `testrail_import.csv`.
+## Inputs
+
+- source scenarios in TDD, BDD, or plain-text form,
+- the target TestRail project or section structure when known,
+- the chosen import format.
+
+## Output Contract
+
+Produce:
+
+- a TestRail-compatible import artifact, or
+- a field-mapping table that shows how each source field will land in TestRail.
+
+## Mapping Rules
+
+- preserve case title, section placement, preconditions, steps, and expected results,
+- keep requirement references if the team tracks them in custom fields or notes,
+- state any manual follow-up needed for fields that cannot be inferred safely.

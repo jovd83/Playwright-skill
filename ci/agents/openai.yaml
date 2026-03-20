@@ -1,0 +1,4 @@
+interface:
+  display_name: "Playwright CI"
+  short_description: "Design or debug Playwright CI pipelines, sharding, and artifacts"
+  default_prompt: "Use $playwright-ci to set up, optimize, or troubleshoot Playwright execution in CI."

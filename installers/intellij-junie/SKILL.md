@@ -1,23 +1,26 @@
 ---
 name: playwright-installer-intellij-junie
-description: A skill to guide the installation and configuration of Playwright testing within IntelliJ IDEA alongside the Junie AI assistant.
+description: Editor-setup skill for Playwright plus Junie in IntelliJ IDEA. Use when Codex needs to help configure an IntelliJ-based Playwright workflow with the Junie assistant and verify the environment is ready for authoring and running tests.
 ---
 
-# IntelliJ IDEA with Junie Installation
+# IntelliJ + Junie Setup
 
-This skill provides the steps to set up AI-assisted Playwright testing inside JetBrains IntelliJ IDEA using the Junie plugin.
+Use this skill when the user wants a working Playwright workflow in IntelliJ IDEA with Junie.
 
-## Prerequisites
-- Node.js installed.
-- IntelliJ IDEA (Ultimate or Community) installed.
-- Junie plugin installed from the JetBrains marketplace.
+## Setup Workflow
 
-## Installation Steps
-1. **Initialize Playwright**
-   Open the terminal inside IntelliJ and run `npm init playwright@latest`.
-   Select TypeScript for maximum compatibility.
-2. **Configure Junie**
-   - Open IntelliJ Settings > Plugins > Installed, confirm Junie is active.
-   - Authorize Junie according to the plugin's onboarding instructions.
-3. **Index Documentation**
-   Provide the `Playwright-skill` repository files, including these markdown skills, to the Junie context. Junie will read these patterns to enforce best practices when writing new tests or diagnosing failures.
+1. Confirm Node.js, npm, and IntelliJ are installed.
+2. Initialize or inspect the Playwright project.
+3. Verify the Junie plugin or assistant workflow is available and authenticated as needed.
+4. Confirm Playwright tests can run and debug locally.
+5. Point the user to the relevant skills in this repository for ongoing work.
+
+## Output Contract
+
+Provide:
+
+- prerequisites,
+- setup steps,
+- verification commands,
+- any IDE-specific caveats,
+- the next recommended skill or guide after setup.

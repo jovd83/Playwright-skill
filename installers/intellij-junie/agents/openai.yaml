@@ -1,0 +1,4 @@
+interface:
+  display_name: "IntelliJ + Junie"
+  short_description: "Set up Playwright workflows in IntelliJ with Junie"
+  default_prompt: "Use $playwright-installer-intellij-junie to set up or verify a Playwright workflow in IntelliJ IDEA with Junie."

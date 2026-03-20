@@ -1,17 +1,30 @@
 ---
 name: playwright-reporting-stakeholder
-description: A skill to draft human-readable, high-level test execution reports for non-technical stakeholders.
+description: Stakeholder-reporting skill for Playwright execution results. Use when Codex needs to turn raw Playwright runs into a concise, non-technical summary of tested scope, release health, business impact, and recommended next actions.
 ---
 
-# Stakeholder Execution Report
+# Playwright Stakeholder Reporting
 
-This skill is designed to take raw test execution data and turn it into a digestible summary for product managers and business stakeholders.
+Use this skill when the audience is a product manager, QA lead, or other stakeholder who does not want raw runner noise.
 
-## Action
-When requested to generate a stakeholder report:
-1. Read the Playwright HTML or JSON report.
-2. Draft a Markdown or PDF document outlining:
-   - **Executive Summary:** Overall health of the release (pass % vs fail %).
-   - **Features Tested:** A bulleted list of functional areas covered by the test suite.
-   - **Known Issues:** A layman's description of the tests that failed, and the actual business impact (e.g., "Users currently cannot reset their password").
-3. Present the drafted report to the user.
+## Inputs
+
+- Playwright HTML, JSON, or CI reports,
+- tested scope or release context,
+- any known blockers, waived failures, or environment qualifiers.
+
+## Output Contract
+
+Produce a report with:
+
+- `Executive summary`
+- `Scope covered`
+- `Overall outcome`
+- `Known issues and business impact`
+- `Recommended next actions`
+
+## Writing Rules
+
+- Translate technical failures into business language.
+- Call out confidence limits if the run was partial or environment-constrained.
+- Keep stack traces and low-level logs out of the main report unless the user explicitly wants them.

@@ -5,6 +5,45 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-03-19
+
+### Added
+- Added `agents/openai.yaml` metadata for the remaining secondary skills across `coverage_plan/auto-sync`, `migration`, `documentation`, `reporting`, `installers`, `transformers`, `mappers`, and `reporters`.
+- Added `scripts/generate_skill_inventory.py` plus the generated [`reports/skill-inventory.md`](reports/skill-inventory.md) report to make package coverage and metadata health easy to inspect.
+
+### Changed
+- Standardized the remaining secondary skill entrypoints to use clearer trigger wording, tighter scope, and more consistent input/output contracts.
+- Expanded repository validation so every skill directory is now expected to carry `agents/openai.yaml`, not just the primary entrypoints.
+- Expanded the GitHub validation workflow to check that the generated inventory report stays in sync with the repository contents.
+
+### Fixed
+- Fixed the remaining style drift between primary and secondary skill packs so the repository now reads as one coherent package instead of a mix of polished and prototype-era entrypoints.
+
+### Removed
+- Removed a large amount of vague or overly tool-specific secondary-skill phrasing that had made the integration packs feel brittle and inconsistent.
+
+## [1.3.0] - 2026-03-19
+
+### Added
+- Added repo-wide `agents/openai.yaml` metadata for the root pack and the primary entrypoint skills (`analysis`, `ci`, `core`, `coverage_plan`, `orchestrator`, `playwright-cli`, and `pom`).
+- Added `CONTRIBUTING.md` with repository conventions, validation expectations, and contribution guidance focused on progressive disclosure and maintainability.
+- Added `scripts/validate_skill_repo.py` to validate skill frontmatter, featured skill metadata, and repo-local markdown links.
+- Added `.github/workflows/validate-skills.yml` for repository-wide skill validation in GitHub Actions.
+
+### Changed
+- Rewrote the root `SKILL.md` to act as a clean routing layer with explicit package boundaries, memory-model guidance, and a sharper subskill map.
+- Rewrote `README.md` to clearly distinguish the core pack from optional enterprise workflows, explain architecture boundaries, and document validation and installation more cleanly.
+- Reworked the main user-facing subskills (`orchestrator`, `analysis`, `coverage_plan`, `core`, `ci`, `pom`, `playwright-cli`) to use clearer trigger descriptions, tighter scope, better output contracts, and less brittle interaction patterns.
+- Removed unsupported extra frontmatter from `playwright-cli/SKILL.md` to align better with the standard skill shape.
+- Corrected the `core/SKILL.md` guide map to reference `api-handler-hardening.md`.
+
+### Fixed
+- Fixed root-level and primary-skill packaging inconsistency by making metadata and routing behavior more uniform across the pack.
+- Fixed a major maintainability gap where the repository had no general validation path outside the handoff tooling.
+
+### Removed
+- Removed duplicated root-level exposition that had previously turned the root skill and README into oversized indexes instead of focused entrypoints.
+
 ## [1.2.0] - 2026-03-13
 
 ### Added

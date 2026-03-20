@@ -1,24 +1,37 @@
 ---
 name: playwright-coverage-plan-review
-description: A skill to present the generated functional coverage plan to the user and request their explicit approval.
+description: Coverage-plan review skill for Playwright work. Use when Codex needs to present a proposed coverage plan, surface assumptions and tradeoffs, collect user feedback, and secure explicit approval before large implementation or documentation work.
 ---
 
-# Functional Coverage Plan Review
+# Playwright Coverage Plan Review
 
-This skill ensures human-in-the-loop approval of the test planning before any code or documentation is written.
+Use this skill to turn a proposed plan into an approved plan.
 
-## 1. Present the Plan
-Format the generated test scenarios clearly. Use summary blocks or tables to make it easy for the user to review.
+## Review Workflow
 
-## 2. Prompt for Feedback
-Explicitly ask the user:
-> "Here is the proposed functional coverage plan based on your requirements. 
-> 1. Does this seem okay to you?
-> 2. Are there any missing scenarios you would like me to add?
-> 3. Are there any scenarios you would like to remove or de-prioritize?"
+1. Present the plan in a compact, scannable format.
+2. Highlight any assumptions, exclusions, or high-cost scenarios.
+3. Ask for additions, removals, or reprioritization only where that decision matters.
+4. Record the approved scope clearly before downstream work begins.
 
-## 3. Iterate
-If the user requests changes, go back, modify the plan according to their feedback, and present it again.
+## Output Contract
 
-## 4. Proceed
-Only when the user provides explicit approval ("Yes", "Looks good", "LGTM", etc.), proceed to the documentation or implementation skills (e.g., `documentation/test_cases/*` or writing the Playwright code).
+Summarize the plan with:
+
+- `Included coverage`
+- `Assumptions`
+- `Proposed exclusions or deferred items`
+- `Questions requiring a decision`
+
+When helpful, include an updated approval table:
+
+| Requirement ID | Scenario | Priority | Status | Notes |
+|---|---|---|---|---|
+
+Use `Status` values such as `proposed`, `approved`, `deferred`, or `removed`.
+
+## Approval Rules
+
+- If the user already approved the scope in the same thread, do not force a second approval loop.
+- If the plan is large, costly, or assumption-heavy, get explicit approval before implementation.
+- If feedback changes the plan materially, refresh the presented version before proceeding.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Stakeholder Report"
+  short_description: "Translate Playwright runs into a non-technical summary"
+  default_prompt: "Use $playwright-reporting-stakeholder to summarize these Playwright results for a stakeholder audience."

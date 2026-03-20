@@ -1,47 +1,37 @@
 ---
 name: playwright-ci
-description: Production-ready CI/CD configurations for Playwright — GitHub Actions, GitLab CI, CircleCI, Azure DevOps, Jenkins, Docker, parallel sharding, reporting, code coverage, and global setup/teardown.
+description: CI and delivery skill for Playwright automation. Use when Codex needs to design, debug, or optimize Playwright execution in GitHub Actions, GitLab CI, CircleCI, Azure DevOps, Jenkins, Docker, sharded pipelines, artifact workflows, or shared setup and teardown.
 ---
 
-# Playwright CI/CD
+# Playwright CI
 
-> Ship reliable tests in every pipeline — CI-specific patterns for speed, stability, and actionable reports.
+Use this skill when the main problem is pipeline execution rather than test authoring.
 
-**9 guides** covering CI/CD setup, parallel execution, containerized runs, reporting, and infrastructure patterns for all major CI providers.
+## CI Standards
 
-## Golden Rules
+1. Prefer deterministic setup over clever pipeline shortcuts.
+2. Capture traces, screenshots, and reports where they help triage failures quickly.
+3. Scale horizontally with sharding before over-sizing single runners.
+4. Cache browser binaries and other stable dependencies deliberately.
+5. Keep CI retries informative, not silent flake camouflage.
 
-1. **`retries: 2` in CI only** — surface flakiness in pipelines, not locally
-2. **`traces: 'on-first-retry'`** — capture rich debugging artifacts without slowing every run
-3. **Shard across runners** — `--shard=N/M` splits tests evenly; scale horizontally, not vertically
-4. **Cache browser binaries** — `~/.cache/ms-playwright` keyed on Playwright version
-5. **Upload artifacts on failure** — traces, screenshots, and HTML reports as CI artifacts
-6. **Use the official Docker image** — `mcr.microsoft.com/playwright:v*` has all OS deps pre-installed
-7. **Global setup for auth** — run login once in `globalSetup`, reuse `storageState` across workers
-8. **Fail fast, debug later** — keep CI runs short; use trace viewer and HTML reports to investigate
+## Read by Need
 
-## Guide Index
-
-### CI Providers
-
-| Provider | Guide |
+| Need | Guide |
 |---|---|
 | GitHub Actions | [ci-github-actions.md](ci-github-actions.md) |
 | GitLab CI | [ci-gitlab.md](ci-gitlab.md) |
-| CircleCI / Azure DevOps / Jenkins | [ci-other.md](ci-other.md) |
+| Other providers | [ci-other.md](ci-other.md) |
+| Sharding and scaling | [parallel-and-sharding.md](parallel-and-sharding.md), [projects-and-dependencies.md](projects-and-dependencies.md) |
+| Containers | [docker-and-containers.md](docker-and-containers.md) |
+| Reports and artifacts | [reporting-and-artifacts.md](reporting-and-artifacts.md) |
+| Coverage and setup orchestration | [test-coverage.md](test-coverage.md), [global-setup-teardown.md](global-setup-teardown.md) |
 
-### Execution & Scaling
+## Output Bias
 
-| Topic | Guide |
-|---|---|
-| Parallel execution & sharding | [parallel-and-sharding.md](parallel-and-sharding.md) |
-| Docker & containers | [docker-and-containers.md](docker-and-containers.md) |
-| Multi-project config | [projects-and-dependencies.md](projects-and-dependencies.md) |
+When solving CI tasks, prefer:
 
-### Reporting & Setup
-
-| Topic | Guide |
-|---|---|
-| Reports & artifacts | [reporting-and-artifacts.md](reporting-and-artifacts.md) |
-| Code coverage | [test-coverage.md](test-coverage.md) |
-| Global setup/teardown | [global-setup-teardown.md](global-setup-teardown.md) |
+- concrete workflow or pipeline changes,
+- exact commands and cache locations,
+- artifact and failure-diagnostics recommendations,
+- explicit tradeoffs when the pipeline needs faster feedback versus deeper debugging.

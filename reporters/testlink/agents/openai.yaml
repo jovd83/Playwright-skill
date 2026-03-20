@@ -1,0 +1,4 @@
+interface:
+  display_name: "TestLink Reporter"
+  short_description: "Publish Playwright execution results to TestLink"
+  default_prompt: "Use $playwright-reporter-testlink to publish these Playwright execution results to TestLink."

@@ -1,22 +1,29 @@
 ---
 name: playwright-documentation-tests
-description: A skill to add human-readable documentation to existing Playwright tests.
+description: Automation-code documentation skill for Playwright suites. Use when Codex needs to add or improve human-readable comments, docblocks, or file-level explanations around existing Playwright tests without drowning the code in redundant commentary.
 ---
 
-# Documenting Existing Tests
+# Playwright Automation Documentation
 
-This skill helps maintain the readability of the test automation codebase for non-technical users and domain experts.
+Use this skill to improve readability of existing Playwright code.
 
-## Action
-When asked to document tests:
-1. Scan the specified `.spec.ts` files.
-2. For each test block (`test('...', async () => {})`), analyze the Playwright actions.
-3. Add a JSDoc block `/** ... */` immediately above the test, explaining what the test does in plain English.
-   - Example:
-     ```typescript
-     /**
-      * This test ensures that when a user tries to checkout with an empty cart,
-      * they are shown a validation error and prevented from reaching the payment screen.
-      */
-     test('Empty cart validation', async ({ page }) => { ... })
-     ```
+## Workflow
+
+1. Read the target test file or support module first.
+2. Identify where comments would materially help a future maintainer.
+3. Add concise documentation at the file, suite, test, fixture, or helper level as appropriate.
+
+## Commenting Rules
+
+- Prefer high-signal docblocks over line-by-line narration.
+- Explain intent, scope, or non-obvious behavior.
+- Do not restate code that is already obvious from the test title or method name.
+- Avoid comment spam in straightforward tests.
+
+## Output
+
+After editing, summarize:
+
+- what was documented,
+- why those locations mattered,
+- any parts of the suite that are still hard to understand and may need refactoring rather than more comments.

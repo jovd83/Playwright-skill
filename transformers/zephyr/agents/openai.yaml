@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zephyr Transformer"
+  short_description: "Convert test-case docs into Zephyr import artifacts"
+  default_prompt: "Use $playwright-transformer-zephyr to convert these Playwright test cases into a Zephyr import-ready format."

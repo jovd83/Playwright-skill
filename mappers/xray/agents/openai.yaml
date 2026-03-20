@@ -1,0 +1,4 @@
+interface:
+  display_name: "Xray Mapper"
+  short_description: "Apply Xray keys back into local docs and automation"
+  default_prompt: "Use $playwright-mapper-xray to apply Xray test keys back into the local Playwright docs or code."

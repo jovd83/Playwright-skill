@@ -1,0 +1,4 @@
+interface:
+  display_name: "VS Code + Codex"
+  short_description: "Set up Playwright workflows in Visual Studio Code with Codex"
+  default_prompt: "Use $playwright-installer-vscode-codex to set up or verify a Playwright workflow in VS Code with Codex."

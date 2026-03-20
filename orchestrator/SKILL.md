@@ -1,52 +1,57 @@
 ---
 name: playwright-orchestrator
-description: An orchestrator skill that acts as the primary contact point for Playwright testing. It prompts the user for their goals (new tests, existing tests, planning, documenting, etc.) and routes them to the appropriate skills.
+description: Central entrypoint for broad or ambiguous Playwright requests. Use when Codex needs to classify the user's testing goal, choose the right Playwright subskill, and move from intent to implementation, planning, documentation, execution, or reporting without unnecessary menu-driven back-and-forth.
 ---
 
 # Playwright Orchestrator
 
-This skill acts as an intelligent router and test management overseer. Whenever you are asked to handle generic testing tasks, you should start by clarifying the user's intent. 
+Use this skill when the user asks for Playwright help but the exact workflow is not yet obvious. Its job is to classify the task, route to the right subskill, and keep the work moving.
 
-## Initial Interaction Flow
+## Routing Principles
 
-When starting a testing-related task, unless the user provides enough context upfront, you must ask the user to clarify their specific purpose by presenting these categories. Provide the options clearly to the user:
+- Infer the task type when the user already gave enough context.
+- Ask a clarifying question only when the answer would materially change the artifact, scope, or next tool.
+- Do not stop for a menu when the user already asked for a concrete deliverable.
+- Prefer the smallest capable subskill instead of loading the whole pack.
 
-1. **What is the primary purpose of your testing task today?**
-   - **Creating new tests**:
-     - For a specific feature/requirements?
-     - For everything?
-     - Just for sanity testing?
-     - Or full regression testing?
-     - Or some happy paths?
-   - **Agent-defined vs User-defined tests**: 
-     - Should I (the AI) define the new scenarios based on requirements?
-     - Or are the test cases/scenarios already defined somewhere for me to implement?
-   - **Running existing tests**:
-     - Run everything?
-     - Run a specific part/suite?
-   - **Planning tests**: Generate functional coverage plans based on requirements.
-   - **Documenting tests**: Document tests using TDD, BDD, or plain text structures.
-   - **Transformations & Test Management**: Convert natural language test cases to formats compatible with TestLink, Zephyr, Xray, or TestRail.
+## Route by Intent
 
-2. **Wait for the user's response before proceeding**. Let them clarify their goal based on the menu above.
+| If the user wants to... | Route to... |
+|---|---|
+| write, fix, or review Playwright tests | [../core/SKILL.md](../core/SKILL.md) |
+| choose between fixtures, POMs, and helpers | [../pom/SKILL.md](../pom/SKILL.md) |
+| set up or debug CI execution | [../ci/SKILL.md](../ci/SKILL.md) |
+| migrate from Cypress or Selenium | [../migration/SKILL.md](../migration/SKILL.md) |
+| drive a browser from the terminal | [../playwright-cli/SKILL.md](../playwright-cli/SKILL.md) |
+| derive requirements from tickets or specs | [../analysis/SKILL.md](../analysis/SKILL.md) |
+| produce or refine a coverage plan | [../coverage_plan/generation/SKILL.md](../coverage_plan/generation/SKILL.md) and [../coverage_plan/review/SKILL.md](../coverage_plan/review/SKILL.md) |
+| write test documentation or convert case formats | `C:\projects\skills\test-artifact-export-skill\SKILL.md` |
+| investigate failures | [../documentation/root_cause/SKILL.md](../documentation/root_cause/SKILL.md) |
+| create handoff or resume-state artifacts | [../documentation/handover/SKILL.md](../documentation/handover/SKILL.md) and [../documentation/session-state/SKILL.md](../documentation/session-state/SKILL.md) |
+| export test cases to external test-management systems | `C:\projects\skills\test-artifact-export-skill\SKILL.md` |
+| report execution to external test-management systems | the relevant [../mappers/](../mappers/), or [../reporters/](../reporters/) subskill |
 
-## Execution and Routing
+## Execution Contract
 
-Once the goal is clarified, leverage the specialized sub-skills in this repository to complete the work:
+After routing, do the work. Do not just announce the destination skill.
 
-- **Planning & Requirements Analysis**: Use the `analysis` and `coverage_plan` skills to derive epics/stories and establish functional coverage. Use `coverage_plan/auto-sync` to keep requirements and documentation synchronized.
-- **Documentation**: Use `documentation` skills (TDD, BDD, plain text) to write out the formal scenarios. Use `documentation/root_cause` when a test fails.
-- **Format Transformation**: Refer to the `transformers` skills to bundle scenarios into CSV/XML/JSON for tools like TestLink, Zephyr, Xray, TestRail.
-- **Test Setup & Logic**: Rely on the existing `core`, `pom`, and `ci` skills for best practices in writing resilient Playwright test code. Use `core/preflight.md` for environment readiness and `core/stability-diagnostics.md` for post-failure triage.
-- **Reporting Results**: Look for `reporters` (to send automated API reports to test management) or `reporting/stakeholder` (for human-readable summaries).
+When helpful, state:
 
-## 🚨 CRITICAL RULE FOR AI TEST GENERATION 🚨
+1. the inferred task type,
+2. the subskill you are using,
+3. any high-impact assumption,
+4. the artifact you are about to produce.
 
-When you are generating Playwright testing code for the user, you MUST strictly adhere to the **Triad Architecture** (Fixtures + Page Object Models + Stateless Helpers). 
-- **POMs FOR REPETITION:** You must encapsulate locators and UI actions inside a Page Object Model (POM) primarily to avoid repetition or for complex UI logic. For simple, one-off test cases with no repetition, inline locators are acceptable.
-- All setup/teardown and state management (such as user login via storageState or API) must be handled by **Custom Fixtures**.
-- Helper files (`helpers.ts`) must exclusively contain stateless, non-browser functions (e.g. `generateRandomEmail`). Never pass a `Page` object to a helper function.
-- **NO PLACEHOLDERS OR STUBS:** You are strictly forbidden from writing "placeholder" tests or using weak assertions like `expect(page).toBeDefined()` or `expect(true).toBe(true)` to claim completion. If the UI or requirements prevent a full implementation, state the blocker clearly instead of providing a fake test. Use legitimate web-first assertions for every generated test scenario.
-- **INTEGRATED DIRECTORY STRUCTURE:** All Page Objects, Fixtures, and Helpers MUST be stored within the `tests/` directory (e.g., `tests/page-objects/`) rather than the project root. This ensures the test suite is isolated and portable.
+## Shared Guardrails
 
-Please deeply review `pom/pom-vs-fixtures-vs-helpers.md` and `core/authentication.md` for the exact implementations of this required architecture.
+- Prefer web-first assertions and resilient, user-facing locators.
+- Do not write placeholder tests or claim implementation is complete when it is blocked.
+- Keep setup and state in fixtures, UI behavior in page objects when repetition or complexity justifies them, and helpers stateless.
+- Mock third-party dependencies selectively; do not mock away the system under test by default.
+- Keep planning and documentation traceable to requirements and executable automation when those artifacts exist.
+
+## Escalation Rules
+
+- If the task is underspecified but low risk, make a reasonable assumption and state it.
+- If the task affects scope, cost, or long-lived structure, pause and get the missing decision.
+- If multiple subskills are required, use them in sequence and keep the handoff between them explicit.

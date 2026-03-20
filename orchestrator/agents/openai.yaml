@@ -1,0 +1,4 @@
+interface:
+  display_name: "Playwright Orchestrator"
+  short_description: "Route broad Playwright requests to the right next workflow"
+  default_prompt: "Use $playwright-orchestrator to classify this Playwright request and move it into the right implementation, planning, documentation, or execution path."

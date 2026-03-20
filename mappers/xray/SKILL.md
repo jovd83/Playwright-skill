@@ -1,14 +1,27 @@
 ---
 name: playwright-mapper-xray
-description: A skill to map Xray unique IDs back to the local test documentation.
+description: Test-management mapping skill for Xray. Use when Codex needs to apply authoritative Xray test keys or issue IDs back into local Playwright docs, tags, or annotations for reliable traceability and reporting.
 ---
 
 # Xray Mapper
 
-After Xray ingestion, JSON/CSV tests receive unique Issue IDs or Test Keys.
+Use this skill after Xray keys exist and the local repository needs to reflect them.
 
-## Action
-When requested:
-1. Obtain the Jira Test Keys for the uploaded tests from the user.
-2. Link the Xray ID into the markdown documentation `Covers Xray ID: XRAY-42`.
-3. Link the test in Playwright using standard Xray tags or annotations for JUnit: `test('@XRAY-42 verify ...', async () => {})` or inside the test logic: `test.info().annotations.push({ type: 'test_key', description: 'XRAY-42' });`
+## Inputs
+
+- an authoritative mapping from local scenarios to Xray keys,
+- the target docs and automation files,
+- the repository convention for tags, annotations, or markdown references.
+
+## Output Contract
+
+Produce:
+
+- updated local traceability references,
+- a summary of which Xray keys were applied,
+- any unresolved matches or conflicts.
+
+## Guardrails
+
+- Do not invent Jira or Xray identifiers.
+- Prefer the repository's existing annotation style when one already exists.

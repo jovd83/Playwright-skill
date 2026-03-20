@@ -1,0 +1,4 @@
+interface:
+  display_name: "Playwright Skill Pack"
+  short_description: "Route Playwright work to the right skill, guide, or workflow"
+  default_prompt: "Use $playwright-skill to route this Playwright task to the right subskill for implementation, planning, documentation, CI, CLI automation, or handoff."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "TestLink Mapper"
+  short_description: "Apply TestLink IDs back into local docs and automation"
+  default_prompt: "Use $playwright-mapper-testlink to apply TestLink case IDs back into the local Playwright docs or code."

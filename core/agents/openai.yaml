@@ -1,0 +1,4 @@
+interface:
+  display_name: "Playwright Core"
+  short_description: "Author and debug resilient Playwright tests"
+  default_prompt: "Use $playwright-core to implement, fix, or review Playwright tests with strong locator, assertion, fixture, and architecture practices."

@@ -1,16 +1,28 @@
 ---
 name: playwright-reporter-testlink
-description: A skill to use TestLink APIs to report Playwright test execution results.
+description: Test-management reporting skill for TestLink. Use when Codex needs to publish Playwright execution results into TestLink using the project's mappings, environment configuration, and chosen reporting flow.
 ---
 
-# TestLink API Reporter
+# TestLink Reporter
 
-This skill handles reporting automation execution results back to TestLink.
+Use this skill when the goal is to push execution outcomes into TestLink.
 
-## Action
-When requested to report results to TestLink:
-1. Ask the user for their TestLink API Key and URL if not provided. Give instructions on how to set it securely in the environment if needed.
-2. Ensure the `testlink-xmlrpc` or `testlink-api-client` library is installed via npm.
-3. Read the latest Playwright test results (e.g., from `playwright-report/` or standard out).
-4. Use the mapping from the local tests (e.g., `[TC-101]`) to formulate an API request to the TestLink XML-RPC endpoint.
-5. Report the execution status (Passed/Failed) and attach logs in case of failure.
+## Inputs
+
+- TestLink connection details and credentials,
+- the local result source,
+- the mapping from automated tests to TestLink case IDs,
+- any target run, build, or environment context required by the project.
+
+## Workflow
+
+1. Confirm the mapping and target run context.
+2. Configure the reporting path or client the project uses.
+3. Publish results securely.
+4. Return a concise report of what was sent and what could not be reported.
+
+## Guardrails
+
+- Never echo secrets back in plain text.
+- Do not report results for tests that cannot be mapped confidently.
+- Call out partial publication explicitly.

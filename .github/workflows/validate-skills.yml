@@ -1,0 +1,69 @@
+name: Validate Skills
+
+on:
+  push:
+    paths:
+      - ".github/workflows/validate-skills.yml"
+      - "SKILL.md"
+      - "README.md"
+      - "CONTRIBUTING.md"
+      - "CHANGELOG.md"
+      - "agents/**"
+      - "analysis/**"
+      - "ci/**"
+      - "core/**"
+      - "coverage_plan/**"
+      - "documentation/**"
+      - "installers/**"
+      - "mappers/**"
+      - "migration/**"
+      - "orchestrator/**"
+      - "playwright-cli/**"
+      - "pom/**"
+      - "reports/**"
+      - "reporters/**"
+      - "reporting/**"
+      - "scripts/**"
+      - "transformers/**"
+  pull_request:
+    paths:
+      - ".github/workflows/validate-skills.yml"
+      - "SKILL.md"
+      - "README.md"
+      - "CONTRIBUTING.md"
+      - "CHANGELOG.md"
+      - "agents/**"
+      - "analysis/**"
+      - "ci/**"
+      - "core/**"
+      - "coverage_plan/**"
+      - "documentation/**"
+      - "installers/**"
+      - "mappers/**"
+      - "migration/**"
+      - "orchestrator/**"
+      - "playwright-cli/**"
+      - "pom/**"
+      - "reports/**"
+      - "reporters/**"
+      - "reporting/**"
+      - "scripts/**"
+      - "transformers/**"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate skill repository
+        run: python scripts/validate_skill_repo.py
+
+      - name: Check inventory report
+        run: python scripts/generate_skill_inventory.py --check reports/skill-inventory.md

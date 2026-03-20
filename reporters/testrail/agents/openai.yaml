@@ -1,0 +1,4 @@
+interface:
+  display_name: "TestRail Reporter"
+  short_description: "Publish Playwright execution results to TestRail"
+  default_prompt: "Use $playwright-reporter-testrail to publish these Playwright execution results to TestRail."

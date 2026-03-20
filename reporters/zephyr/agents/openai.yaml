@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zephyr Reporter"
+  short_description: "Publish Playwright execution results to Zephyr"
+  default_prompt: "Use $playwright-reporter-zephyr to publish these Playwright execution results to Zephyr Scale."

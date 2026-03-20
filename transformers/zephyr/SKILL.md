@@ -1,17 +1,27 @@
 ---
 name: playwright-transformer-zephyr
-description: A skill to transform natural language test cases into Zephyr Scale compatible import formats (JSON/CSV).
+description: Legacy Playwright-specific alias for Zephyr case export. Prefer the standalone `test-artifact-export-skill` skill for transforming approved test cases into Zephyr-ready artifacts, and use this only when Playwright-local conventions must be preserved explicitly.
 ---
 
-# Transforming Test Cases to Zephyr
+# Zephyr Transformer
 
-This skill handles converting abstract step definitions into a Zephyr Scale import format.
+Use this skill to convert narrative test cases into Zephyr Scale import artifacts.
 
-## Action
-When asked to transform test cases to Zephyr format:
-1. Extract Steps and Expected outcomes.
-2. Structure the data according to the Zephyr Scale JSON schema (for REST API) or Zephyr Test case CSV import template.
-   - For CSV, map to: `Name`, `Objective`, `Precondition`, `Test Script (Step-by-Step)`, `Test Script (Expected Result)`.
-   - `Title` -> `Name`
-   - `Summary` -> `Objective`
-3. Output the result into a `zephyr_import.json` or `zephyr_import.csv` file.
+## Inputs
+
+- source scenarios in TDD, BDD, or plain-text form,
+- the chosen Zephyr import path,
+- any project-specific field expectations.
+
+## Output Contract
+
+Produce:
+
+- a Zephyr-compatible import artifact, or
+- a field-mapping table that shows the exact transformation.
+
+## Mapping Rules
+
+- map scenario name, objective, preconditions, step script, and expected results consistently,
+- preserve requirement references when the destination format supports them,
+- call out any information the source material does not provide.
