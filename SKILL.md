@@ -56,6 +56,13 @@ Do not load every guide by default. Read only the subskill and reference files t
 - Mock external dependencies selectively; do not hide the behavior of the system under test behind unnecessary mocks.
 - Keep requirements, plans, documentation, and executable tests traceable to one another when the workflow includes planning or documentation.
 
+## Gotchas
+
+- **Context Weight**: This is a large skill pack. Avoid loading the full file registry or the root skill for simple tasks; jump straight to the smallest relevant subskill (e.g., `core/`) to keep reasoning sharp.
+- **Path Resolution**: When providing file paths to subskills, ensure they are absolute or clearly relative to the project root. Subskills often have their own local standards for where they look for tests.
+- **Statelessness**: Unless you use the `documentation/session-state/` workflow, assume each agent interaction is stateless. If you need to "resume" work, you must explicitly read the previous session's artifacts or handoffs.
+- **Playwright-Specific Pitfalls**: For detailed technical gotchas regarding nested locators, async races, and flaky tests, always refer to [core/common-pitfalls.md](core/common-pitfalls.md).
+
 ## Memory Model
 
 - Runtime memory: ephemeral reasoning and task state for the current thread.
