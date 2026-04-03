@@ -130,7 +130,7 @@ The repository includes GitHub Actions validation for repo-wide skill health, in
 
 ## Contributing
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) for repository conventions, validation expectations, and guidance for editing or adding skills without bloating the package.
+Follow the repository conventions already documented in the skill files, validation scripts, and generated inventory when editing or adding skills.
 
 ## Upstream Credit
 
