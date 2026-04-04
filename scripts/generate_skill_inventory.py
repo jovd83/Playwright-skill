@@ -18,9 +18,18 @@ def skill_category(skill_path: Path) -> str:
     return relative.parts[0]
 
 
+def normalized_report(text: str) -> str:
+    normalized = text.replace("\r\n", "\n")
+    return normalized if normalized.endswith("\n") else f"{normalized}\n"
+
+
 def inventory_rows() -> list[dict[str, str]]:
     rows: list[dict[str, str]] = []
-    for skill_file in sorted(REPO_ROOT.rglob("SKILL.md")):
+    skill_files = sorted(
+        REPO_ROOT.rglob("SKILL.md"),
+        key=lambda path: path.relative_to(REPO_ROOT).as_posix(),
+    )
+    for skill_file in skill_files:
         frontmatter = parse_frontmatter(skill_file)
         metadata_path = skill_file.parent / "agents" / "openai.yaml"
         metadata = parse_openai_yaml(metadata_path) if metadata_path.exists() else {}
@@ -90,7 +99,7 @@ def main() -> int:
     if args.check:
         check_path = args.check.resolve()
         expected = check_path.read_text(encoding="utf-8") if check_path.exists() else ""
-        if expected != content:
+        if normalized_report(expected) != normalized_report(content):
             print(f"Inventory report is stale: {check_path.relative_to(REPO_ROOT)}")
             return 1
         print(f"Inventory report is up to date: {check_path.relative_to(REPO_ROOT)}")
@@ -98,7 +107,8 @@ def main() -> int:
 
     output_path = args.write
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(content, encoding="utf-8")
+    with output_path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(content)
     print(f"Wrote inventory report to {output_path.relative_to(REPO_ROOT)}")
     return 0
 
