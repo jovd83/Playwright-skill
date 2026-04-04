@@ -1,6 +1,6 @@
 # Playwright Agent Skills
 
-[![Version](https://img.shields.io/badge/version-1.4.0-blue.svg)](CHANGELOG.md) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Validate Skills](https://github.com/jovd83/playwright-skill/actions/workflows/validate-skills.yml/badge.svg)](https://github.com/jovd83/playwright-skill/actions/workflows/validate-skills.yml) [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/jovd83)
+[![Version](https://img.shields.io/badge/version-1.4.0-blue.svg)](CHANGELOG.md) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Validate Skills](https://github.com/jovd83/Playwright-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/jovd83/Playwright-skill/actions/workflows/ci.yml) [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/jovd83)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 Enterprise-grade Playwright skills for AI coding assistants. This repository packages focused `SKILL.md` entrypoints, reusable reference guides, and deterministic handoff tooling for teams that want Playwright help to feel consistent, installable, and maintainable instead of prompt-fragile.
