@@ -1,6 +1,17 @@
 ---
 name: playwright-coverage-plan-generation
 description: Coverage-planning skill for Playwright work. Use when Codex needs to turn confirmed requirements into a structured, risk-aware Playwright coverage plan with scenarios, execution types, priorities, and traceability.
+metadata:
+  author: jovd83
+  version: "2.0.0"
+  dispatcher-category: testing
+  dispatcher-capabilities: coverage-planning, playwright-coverage-planning
+  dispatcher-accepted-intents: plan_playwright_coverage, generate_ui_test_coverage_plan
+  dispatcher-input-artifacts: analysis_baseline, confirmed_requirements, repo_context, scope_constraints
+  dispatcher-output-artifacts: coverage_plan, scenario_matrix, approval_request
+  dispatcher-stack-tags: playwright, coverage-planning, ui-testing
+  dispatcher-risk: medium
+  dispatcher-writes-files: false
 ---
 
 # Playwright Coverage Plan Generation
@@ -44,4 +55,6 @@ Use `Coverage Type` values such as `happy-path`, `variation`, `negative`, `edge`
 
 ## Next Step
 
-Use [../review/SKILL.md](../review/SKILL.md) when explicit review or sign-off is needed before implementation or documentation.
+Use dispatcher intent `review_playwright_coverage_plan` when explicit review or sign-off is needed before implementation or documentation.
+
+If dispatcher routing is unavailable, use [../review/SKILL.md](../review/SKILL.md).

@@ -1,6 +1,17 @@
 ---
 name: playwright-analysis-requirements
 description: Requirements-analysis skill for Playwright planning and implementation. Use when Codex needs to extract testable behaviors, acceptance criteria, risks, dependencies, or open questions from tickets, specs, markdown docs, or other requirement sources before writing tests or coverage plans.
+metadata:
+  author: jovd83
+  version: "2.0.0"
+  dispatcher-category: testing
+  dispatcher-capabilities: requirements-analysis, playwright-requirements-analysis
+  dispatcher-accepted-intents: analyze_playwright_requirements, derive_ui_testable_behaviors
+  dispatcher-input-artifacts: requirements, ticket, spec, markdown_docs, repo_context
+  dispatcher-output-artifacts: analysis_baseline, requirement_summary, open_questions, routing_request
+  dispatcher-stack-tags: playwright, analysis, ui-testing
+  dispatcher-risk: low
+  dispatcher-writes-files: false
 ---
 
 # Playwright Requirements Analysis
@@ -47,4 +58,6 @@ When tabular output helps, use:
 
 ## Handoff
 
-Use the output of this skill as the input to [../coverage_plan/generation/SKILL.md](../coverage_plan/generation/SKILL.md) or to direct implementation work when the scope is already narrow.
+Use the output of this skill as the input to dispatcher intent `plan_playwright_coverage` when planning is needed.
+
+If dispatcher routing is unavailable, use [../coverage_plan/generation/SKILL.md](../coverage_plan/generation/SKILL.md) or move directly into implementation work when the scope is already narrow.
