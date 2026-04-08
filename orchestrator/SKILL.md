@@ -1,6 +1,17 @@
 ---
 name: playwright-orchestrator
 description: Central entrypoint for broad or ambiguous Playwright requests. Use when Codex needs to classify the user's testing goal, choose the right Playwright subskill, and move from intent to implementation, planning, documentation, execution, or reporting without unnecessary menu-driven back-and-forth.
+metadata:
+  author: jovd83
+  version: "2.0.0"
+  dispatcher-category: testing
+  dispatcher-capabilities: playwright-orchestration, playwright-routing
+  dispatcher-accepted-intents: route_playwright_work, orchestrate_playwright_task
+  dispatcher-input-artifacts: user_request, repo_context, requirements, failure_output
+  dispatcher-output-artifacts: routing_decision, routing_request, execution_plan
+  dispatcher-stack-tags: playwright, orchestration, ui-testing
+  dispatcher-risk: medium
+  dispatcher-writes-files: false
 ---
 
 # Playwright Orchestrator
@@ -25,10 +36,10 @@ Use this skill when the user asks for Playwright help but the exact workflow is 
 | drive a browser from the terminal | [../playwright-cli/SKILL.md](../playwright-cli/SKILL.md) |
 | derive requirements from tickets or specs | [../analysis/SKILL.md](../analysis/SKILL.md) |
 | produce or refine a coverage plan | [../coverage_plan/generation/SKILL.md](../coverage_plan/generation/SKILL.md) and [../coverage_plan/review/SKILL.md](../coverage_plan/review/SKILL.md) |
-| write test documentation or convert case formats | `C:\projects\skills\test-artifact-export-skill\SKILL.md` |
+| write test documentation or convert case formats | dispatch `render_test_artifact` through `skill-dispatcher`, or fall back to `C:\projects\skills\test-artifact-export-skill\SKILL.md` |
 | investigate failures | [../documentation/root_cause/SKILL.md](../documentation/root_cause/SKILL.md) |
 | create handoff or resume-state artifacts | [../documentation/handover/SKILL.md](../documentation/handover/SKILL.md) and [../documentation/session-state/SKILL.md](../documentation/session-state/SKILL.md) |
-| export test cases to external test-management systems | `C:\projects\skills\test-artifact-export-skill\SKILL.md` |
+| export test cases to external test-management systems | dispatch `render_test_artifact` through `skill-dispatcher`, or fall back to `C:\projects\skills\test-artifact-export-skill\SKILL.md` |
 | report execution to external test-management systems | the relevant [../mappers/](../mappers/), or [../reporters/](../reporters/) subskill |
 
 ## Execution Contract
@@ -55,3 +66,4 @@ When helpful, state:
 - If the task is underspecified but low risk, make a reasonable assumption and state it.
 - If the task affects scope, cost, or long-lived structure, pause and get the missing decision.
 - If multiple subskills are required, use them in sequence and keep the handoff between them explicit.
+- Treat direct sibling-skill paths as a compatibility fallback when dispatcher routing is unavailable.
