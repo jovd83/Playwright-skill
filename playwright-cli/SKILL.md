@@ -1,6 +1,17 @@
 ---
 name: playwright-cli
 description: Browser-automation skill for terminal-driven Playwright work. Use when Codex needs to navigate websites, inspect pages, interact with forms, capture screenshots or traces, manage browser sessions, mock requests, or generate test code through a local `playwright-cli` workflow instead of writing a full test first.
+metadata:
+  author: jovd83
+  version: "2.0.0"
+  dispatcher-category: testing
+  dispatcher-capabilities: browser-automation-cli, playwright-cli-automation
+  dispatcher-accepted-intents: drive_playwright_browser_cli
+  dispatcher-input-artifacts: browser_task, target_url, automation_constraints
+  dispatcher-output-artifacts: browser_run_artifact, cli_workflow, generated_steps
+  dispatcher-stack-tags: playwright, cli, browser-automation
+  dispatcher-risk: medium
+  dispatcher-writes-files: true
 ---
 
 # Playwright CLI

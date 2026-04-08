@@ -1,6 +1,17 @@
 ---
 name: playwright-installer-vscode-codex
 description: Editor-setup skill for Playwright plus OpenAI Codex in Visual Studio Code. Use when Codex needs to help configure a practical VS Code environment for Playwright authoring, execution, debugging, and local skill usage.
+metadata:
+  author: jovd83
+  version: "2.0.0"
+  dispatcher-category: testing
+  dispatcher-capabilities: editor-setup, playwright-editor-setup
+  dispatcher-accepted-intents: setup_playwright_editor
+  dispatcher-input-artifacts: editor_choice, repo_context, local_environment
+  dispatcher-output-artifacts: editor_setup_steps, configuration_guidance
+  dispatcher-stack-tags: playwright, setup, editor
+  dispatcher-risk: low
+  dispatcher-writes-files: false
 ---
 
 # VS Code + Codex Setup

@@ -1,6 +1,17 @@
 ---
 name: playwright-transformer-testrail
 description: Legacy Playwright-specific alias for TestRail case export. Prefer the standalone `test-artifact-export-skill` skill for transforming approved test cases into TestRail-ready artifacts, and use this only when Playwright-local conventions must be preserved explicitly.
+metadata:
+  author: jovd83
+  version: "2.0.0"
+  dispatcher-category: testing
+  dispatcher-capabilities: test-artifact-formatting, playwright-legacy-export-transform
+  dispatcher-accepted-intents: render_test_artifact, export_test_cases
+  dispatcher-input-artifacts: approved_test_cases, normalized_test_case_model, destination_constraints
+  dispatcher-output-artifacts: transformed_test_artifact, export_bundle
+  dispatcher-stack-tags: playwright, transform, legacy-alias
+  dispatcher-risk: low
+  dispatcher-writes-files: true
 ---
 
 # TestRail Transformer

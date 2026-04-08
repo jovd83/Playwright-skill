@@ -1,6 +1,17 @@
 ---
 name: playwright-reporter-testlink
 description: Test-management reporting skill for TestLink. Use when Codex needs to publish Playwright execution results into TestLink using the project's mappings, environment configuration, and chosen reporting flow.
+metadata:
+  author: jovd83
+  version: "2.0.0"
+  dispatcher-category: testing
+  dispatcher-capabilities: test-management-reporting, playwright-test-management-reporting
+  dispatcher-accepted-intents: report_playwright_test_results
+  dispatcher-input-artifacts: execution_results, test_management_config, mappings
+  dispatcher-output-artifacts: published_results, reporting_summary
+  dispatcher-stack-tags: playwright, reporting, test-management
+  dispatcher-risk: medium
+  dispatcher-writes-files: true
 ---
 
 # TestLink Reporter

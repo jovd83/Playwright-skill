@@ -1,6 +1,17 @@
 ---
 name: playwright-mapper-xray
 description: Test-management mapping skill for Xray. Use when Codex needs to apply authoritative Xray test keys or issue IDs back into local Playwright docs, tags, or annotations for reliable traceability and reporting.
+metadata:
+  author: jovd83
+  version: "2.0.0"
+  dispatcher-category: testing
+  dispatcher-capabilities: test-management-mapping, playwright-test-management-mapping
+  dispatcher-accepted-intents: map_playwright_test_management_ids
+  dispatcher-input-artifacts: test_management_ids, local_artifacts, repo_context
+  dispatcher-output-artifacts: mapped_traceability_artifacts, mapping_report
+  dispatcher-stack-tags: playwright, mapping, test-management
+  dispatcher-risk: low
+  dispatcher-writes-files: true
 ---
 
 # Xray Mapper

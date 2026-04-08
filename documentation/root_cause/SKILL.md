@@ -1,6 +1,17 @@
 ---
 name: playwright-documentation-root-cause
 description: Failure-analysis skill for Playwright runs. Use when Codex needs to investigate a failing test, distinguish likely product bugs from test issues, and produce a concise developer-focused root-cause report backed by evidence.
+metadata:
+  author: jovd83
+  version: "2.0.0"
+  dispatcher-category: testing
+  dispatcher-capabilities: failure-analysis, playwright-root-cause
+  dispatcher-accepted-intents: analyze_playwright_test_failure
+  dispatcher-input-artifacts: failure_output, repo_context, test_artifacts
+  dispatcher-output-artifacts: root_cause_report, failure_summary
+  dispatcher-stack-tags: playwright, diagnostics, failure-analysis
+  dispatcher-risk: low
+  dispatcher-writes-files: false
 ---
 
 # Playwright Root Cause Analysis
