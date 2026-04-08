@@ -1,6 +1,17 @@
 ---
 name: playwright-skill
 description: Flagship Playwright skill pack for planning, authoring, debugging, documenting, and operationalizing Playwright work. Use when Codex needs Playwright guidance or routing across E2E, API, component, visual, accessibility, CI/CD, coverage planning, documentation, CLI browser automation, or optional handoff workflows.
+metadata:
+  author: jovd83
+  version: "2.0.0"
+  dispatcher-category: testing
+  dispatcher-capabilities: ui-automation, playwright, coverage-planning, automation-routing
+  dispatcher-accepted-intents: implement_ui_confirmation_test, plan_playwright_coverage, diagnose_playwright_failure, document_playwright_tests
+  dispatcher-input-artifacts: repo_context, requirements, test_case_set, existing_playwright_suite, failing_ui_scenario
+  dispatcher-output-artifacts: playwright_test, coverage_plan, root_cause_report, automation_docs, routing_request
+  dispatcher-stack-tags: playwright, ui-testing, browser-automation
+  dispatcher-risk: high
+  dispatcher-writes-files: true
 ---
 
 # Playwright Skill Pack
@@ -20,6 +31,15 @@ Do not load every guide by default. Read only the subskill and reference files t
 - Do not duplicate deep implementation guidance that already lives in a focused subskill.
 - Do not treat this repository as shared-memory infrastructure. If durable cross-agent knowledge is needed beyond one repo or skill, integrate an external shared-memory skill instead of storing it here implicitly.
 
+## Dispatcher Integration
+
+Use `skill-dispatcher` as the primary integration layer whenever this package needs help from another skill or when a broader orchestrator is deciding whether Playwright is the right execution layer.
+
+- Prefer dispatcher-led routing by intent, especially for tasks such as `implement_ui_confirmation_test`, `render_test_artifact`, and `generate_test_data`.
+- Prefer the repository's native browser automation stack over Playwright when repo evidence points elsewhere.
+- Use Playwright as the default browser automation choice only when the repository supports it already, the user asks for it, or dispatcher policy explicitly selects it.
+- Treat direct paths to sibling skills as a compatibility fallback, not as the primary routing contract.
+
 ## Routing Map
 
 | Need | Use |
@@ -33,10 +53,10 @@ Do not load every guide by default. Read only the subskill and reference files t
 | Requirements extraction | [analysis/SKILL.md](analysis/SKILL.md) |
 | Coverage planning | [coverage_plan/generation/SKILL.md](coverage_plan/generation/SKILL.md) and [coverage_plan/review/SKILL.md](coverage_plan/review/SKILL.md) |
 | Coverage-plan maintenance | [coverage_plan/auto-sync/SKILL.md](coverage_plan/auto-sync/SKILL.md) |
-| Narrative test documentation or format conversion | `C:\projects\skills\test-artifact-export-skill\SKILL.md` |
+| Narrative test documentation or format conversion | Dispatch `render_test_artifact` through `skill-dispatcher`; fall back to `C:\projects\skills\test-artifact-export-skill\SKILL.md` when needed |
 | Automation-code documentation or failure diagnosis | [documentation/tests/SKILL.md](documentation/tests/SKILL.md) or [documentation/root_cause/SKILL.md](documentation/root_cause/SKILL.md) |
 | Human or agent handoff workflows | [documentation/handover/SKILL.md](documentation/handover/SKILL.md) and [documentation/session-state/SKILL.md](documentation/session-state/SKILL.md) |
-| Test-case export to Xray, Zephyr, TestLink, or TestRail | `C:\projects\skills\test-artifact-export-skill\SKILL.md` |
+| Test-case export to Xray, Zephyr, TestLink, or TestRail | Dispatch `render_test_artifact` through `skill-dispatcher`; fall back to `C:\projects\skills\test-artifact-export-skill\SKILL.md` when needed |
 | Test-management integrations after export exists | [mappers/](mappers/), and [reporters/](reporters/) subskills |
 | IDE-specific setup help | [installers/](installers/) subskills |
 
@@ -75,7 +95,7 @@ Do not load every guide by default. Read only the subskill and reference files t
 - `analysis/`, `coverage_plan/`, and `documentation/` add planning and traceability workflows.
 - `documentation/handover/` and `documentation/session-state/` are optional operational workflows for multi-session or multi-operator work.
 - `mappers/`, `reporters/`, `reporting/`, and `installers/` are optional extensions, not prerequisites for ordinary Playwright authoring.
-- The standalone `test-artifact-export-skill` skill is the canonical formatter/exporter for narrative test cases and tool-ready artifacts.
+- The standalone `test-artifact-export-skill` skill remains the canonical formatter/exporter for narrative test cases and tool-ready artifacts, but reach it through `skill-dispatcher` first when cross-skill routing is available.
 
 ## Use the Root Skill Well
 

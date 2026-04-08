@@ -11,7 +11,7 @@ LINK_PATTERN = re.compile(r"(?<!\!)\[[^\]]+\]\(([^)]+)\)")
 FENCED_CODE_PATTERN = re.compile(r"```.*?```", re.DOTALL)
 
 
-def parse_frontmatter(path: Path) -> dict[str, str]:
+def parse_frontmatter(path: Path) -> dict[str, object]:
     text = path.read_text(encoding="utf-8")
     if not text.startswith("---\n"):
         raise ValueError("missing YAML frontmatter opening delimiter")
@@ -21,14 +21,33 @@ def parse_frontmatter(path: Path) -> dict[str, str]:
         raise ValueError("frontmatter block is not closed")
 
     raw = parts[1].strip().splitlines()
-    data: dict[str, str] = {}
+    data: dict[str, object] = {}
+    current_block: str | None = None
     for line in raw:
         if not line.strip():
+            continue
+        if line.startswith("  "):
+            if current_block is None:
+                raise ValueError(f"invalid nested frontmatter line: {line!r}")
+            if ":" not in line:
+                raise ValueError(f"invalid nested frontmatter line: {line!r}")
+            key, value = line.strip().split(":", 1)
+            nested = data.setdefault(current_block, {})
+            if not isinstance(nested, dict):
+                raise ValueError(f"frontmatter block {current_block!r} must be a mapping")
+            nested[key.strip()] = value.strip().strip('"')
             continue
         if ":" not in line:
             raise ValueError(f"invalid frontmatter line: {line!r}")
         key, value = line.split(":", 1)
-        data[key.strip()] = value.strip()
+        normalized_key = key.strip()
+        normalized_value = value.strip().strip('"')
+        if normalized_value:
+            data[normalized_key] = normalized_value
+            current_block = None
+        else:
+            data[normalized_key] = {}
+            current_block = normalized_key
     return data
 
 
@@ -80,10 +99,11 @@ def main() -> int:
             continue
 
         keys = set(frontmatter)
-        allowed_keys = {"name", "description"}
-        if keys != allowed_keys:
-            extra = sorted(keys - allowed_keys)
-            missing = sorted(allowed_keys - keys)
+        allowed_keys = {"name", "description", "metadata"}
+        required_keys = {"name", "description"}
+        extra = sorted(keys - allowed_keys)
+        missing = sorted(required_keys - keys)
+        if extra or missing:
             if extra:
                 errors.append(
                     f"{skill_file.relative_to(REPO_ROOT)}: unsupported frontmatter keys {extra}"
@@ -107,6 +127,12 @@ def main() -> int:
 
         if not description:
             errors.append(f"{skill_file.relative_to(REPO_ROOT)}: empty description")
+
+        metadata = frontmatter.get("metadata")
+        if metadata is not None and not isinstance(metadata, dict):
+            errors.append(
+                f"{skill_file.relative_to(REPO_ROOT)}: metadata must be a mapping when present"
+            )
 
         validate_links(skill_file, errors)
 
