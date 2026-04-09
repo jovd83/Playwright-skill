@@ -1350,7 +1350,7 @@ def test_begin_session_creates_and_resumes_live_work(tmp_root: Path) -> None:
     assert_equal(payload["report"]["summary"]["task"], "Login flow handoff", "Expected begin session to persist the task.")
     assert_equal(payload["report"]["summary"]["current_step"], "Investigating login flow", "Expected begin session to default the current step to the purpose.")
     assert_equal(payload["report"]["lease"]["holder"], "codex", "Expected begin session to claim the lease for the holder.")
-    assert_contains(payload["session_state"], "session-state\\CURRENT.md", "Expected begin session to create CURRENT.md.")
+    assert_contains(payload["session_state"], str(Path("session-state") / "CURRENT.md"), "Expected begin session to create CURRENT.md.")
 
     update_project = tmp_root / "begin-session-update-project"
     (update_project / ".git").mkdir(parents=True)
