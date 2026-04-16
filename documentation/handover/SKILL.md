@@ -56,6 +56,12 @@ Prefer `python ../shared/scripts/validate_handoff_pair.py --handover <handover.m
 Prefer `python scripts/generate_handover.py --task-summary "<summary>" --status in-progress --updated-by codex --next-owner qa-reviewer` to scaffold new handover files deterministically.
 Run `python scripts/validate_handover.py <path-to-handover.md>` before transferring work.
 
+
+## Telemetry & Logging
+> [!IMPORTANT]
+> All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
+> `python scripts/dispatch_logger.py --skill <skill_name> --intent <intent> --reason <reason>`
+
 ## 1. Resolve the documentation root
 
 1. Run `python ../shared/scripts/resolve_test_docs_root.py --ensure handover` when you need to discover the root explicitly.

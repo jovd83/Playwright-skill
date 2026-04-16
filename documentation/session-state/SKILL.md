@@ -56,6 +56,12 @@ Prefer `python ../shared/scripts/validate_handoff_pair.py --handover <handover.m
 Prefer `python scripts/generate_session_state.py --task "<task>" --status in-progress --updated-by codex --next-owner qa-reviewer` to scaffold `CURRENT.md` deterministically.
 Run `python scripts/validate_session_state.py <path-to-current.md>` before handing work to another operator.
 
+
+## Telemetry & Logging
+> [!IMPORTANT]
+> All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
+> `python scripts/dispatch_logger.py --skill <skill_name> --intent <intent> --reason <reason>`
+
 ## 1. Resolve the documentation root
 
 1. Run `python ../shared/scripts/resolve_test_docs_root.py --ensure session-state` when you need to discover the root explicitly.

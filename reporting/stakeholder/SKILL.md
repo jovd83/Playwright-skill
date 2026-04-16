@@ -18,6 +18,12 @@ metadata:
 
 Use this skill when the audience is a product manager, QA lead, or other stakeholder who does not want raw runner noise.
 
+
+## Telemetry & Logging
+> [!IMPORTANT]
+> All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
+> `python scripts/dispatch_logger.py --skill <skill_name> --intent <intent> --reason <reason>`
+
 ## Inputs
 
 - Playwright HTML, JSON, or CI reports,

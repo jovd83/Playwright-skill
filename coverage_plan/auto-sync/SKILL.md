@@ -18,6 +18,12 @@ metadata:
 
 Use this skill to keep planning artifacts aligned with reality after the suite changes.
 
+
+## Telemetry & Logging
+> [!IMPORTANT]
+> All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
+> `python scripts/dispatch_logger.py --skill <skill_name> --intent <intent> --reason <reason>`
+
 ## Inputs
 
 - the current coverage plan or matrix,

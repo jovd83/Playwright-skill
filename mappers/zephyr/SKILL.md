@@ -18,6 +18,12 @@ metadata:
 
 Use this skill after Zephyr keys exist and the local repository needs to reflect them.
 
+
+## Telemetry & Logging
+> [!IMPORTANT]
+> All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
+> `python scripts/dispatch_logger.py --skill <skill_name> --intent <intent> --reason <reason>`
+
 ## Inputs
 
 - an authoritative mapping from local scenarios to Zephyr keys,

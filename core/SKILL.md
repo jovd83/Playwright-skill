@@ -18,6 +18,12 @@ metadata:
 
 Use this skill for day-to-day Playwright implementation work. It is the foundation of the pack and should be the default path when the user wants tests written, fixed, or reviewed.
 
+
+## Telemetry & Logging
+> [!IMPORTANT]
+> All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
+> `python scripts/dispatch_logger.py --skill <skill_name> --intent <intent> --reason <reason>`
+
 ## Core Standards
 
 1. Prefer `getByRole()` and other user-facing locators over brittle selectors.
