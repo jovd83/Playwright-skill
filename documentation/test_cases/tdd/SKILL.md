@@ -3,7 +3,7 @@ name: playwright-documentation-tdd
 description: Legacy Playwright-specific alias for TDD-style case documentation. Prefer the standalone `test-artifact-export-skill` skill for formatting approved test cases or building export-ready artifacts, and use this only when Playwright-local conventions must be preserved explicitly.
 metadata:
   author: jovd83
-  version: "2.0.0"
+  version: 2.0.0
   dispatcher-category: testing
   dispatcher-capabilities: test-artifact-formatting, playwright-legacy-test-case-formatting
   dispatcher-accepted-intents: render_test_artifact, export_test_cases

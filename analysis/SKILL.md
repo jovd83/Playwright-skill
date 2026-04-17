@@ -3,7 +3,7 @@ name: playwright-analysis-requirements
 description: Requirements-analysis skill for Playwright planning and implementation. Use when Codex needs to extract testable behaviors, acceptance criteria, risks, dependencies, or open questions from tickets, specs, markdown docs, or other requirement sources before writing tests or coverage plans.
 metadata:
   author: jovd83
-  version: "2.0.0"
+  version: 2.0.0
   dispatcher-category: testing
   dispatcher-capabilities: requirements-analysis, playwright-requirements-analysis
   dispatcher-accepted-intents: analyze_playwright_requirements, derive_ui_testable_behaviors

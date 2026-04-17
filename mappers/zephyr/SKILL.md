@@ -3,7 +3,7 @@ name: playwright-mapper-zephyr
 description: Test-management mapping skill for Zephyr Scale. Use when Codex needs to apply authoritative Zephyr test keys back into local Playwright docs, titles, or annotations so execution and planning artifacts stay aligned.
 metadata:
   author: jovd83
-  version: "2.0.0"
+  version: 2.0.0
   dispatcher-category: testing
   dispatcher-capabilities: test-management-mapping, playwright-test-management-mapping
   dispatcher-accepted-intents: map_playwright_test_management_ids

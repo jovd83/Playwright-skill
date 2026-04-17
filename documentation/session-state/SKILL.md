@@ -3,7 +3,7 @@ name: session-state
 description: Use when Playwright work spans multiple sessions or operators and a live resume pointer is needed. Maintain a current state file that records the latest completed step, current in-progress step, remaining work, blockers, touched files, resume commands, validation snapshot, and links to the latest handover.
 metadata:
   author: jovd83
-  version: "2.0.0"
+  version: 2.0.0
   dispatcher-category: testing
   dispatcher-capabilities: session-state, playwright-session-state
   dispatcher-accepted-intents: record_playwright_session_state

@@ -3,7 +3,7 @@ name: playwright-reporter-testrail
 description: Test-management reporting skill for TestRail. Use when Codex needs to publish Playwright execution results into TestRail using the project's mappings, run configuration, and chosen reporting flow.
 metadata:
   author: jovd83
-  version: "2.0.0"
+  version: 2.0.0
   dispatcher-category: testing
   dispatcher-capabilities: test-management-reporting, playwright-test-management-reporting
   dispatcher-accepted-intents: report_playwright_test_results

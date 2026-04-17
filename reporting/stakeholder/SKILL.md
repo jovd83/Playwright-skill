@@ -3,7 +3,7 @@ name: playwright-reporting-stakeholder
 description: Stakeholder-reporting skill for Playwright execution results. Use when Codex needs to turn raw Playwright runs into a concise, non-technical summary of tested scope, release health, business impact, and recommended next actions.
 metadata:
   author: jovd83
-  version: "2.0.0"
+  version: 2.0.0
   dispatcher-category: testing
   dispatcher-capabilities: stakeholder-reporting, playwright-stakeholder-reporting
   dispatcher-accepted-intents: summarize_playwright_test_results

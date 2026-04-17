@@ -2,8 +2,8 @@
 name: playwright-skill
 description: Flagship Playwright skill pack for planning, authoring, debugging, documenting, and operationalizing Playwright work. Use when Codex needs Playwright guidance or routing across E2E, API, component, visual, accessibility, CI/CD, coverage planning, documentation, CLI browser automation, or optional handoff workflows.
 metadata:
-    dispatcher-layer: execution
-    dispatcher-lifecycle: active
+  dispatcher-layer: execution
+  dispatcher-lifecycle: active
   author: jovd83
   version: "2.1.0"
   dispatcher-category: testing

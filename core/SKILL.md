@@ -3,7 +3,7 @@ name: playwright-core
 description: Core Playwright implementation skill for resilient test authoring and debugging. Use when Codex needs practical Playwright guidance for locators, assertions, fixtures, authentication, network behavior, API testing, component testing, debugging, framework-specific recipes, or broader test architecture decisions.
 metadata:
   author: jovd83
-  version: "2.0.0"
+  version: 2.0.0
   dispatcher-category: testing
   dispatcher-capabilities: ui-automation, playwright-core, playwright-implementation
   dispatcher-accepted-intents: implement_ui_confirmation_test, debug_playwright_test, review_playwright_test

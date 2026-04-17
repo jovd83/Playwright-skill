@@ -3,7 +3,7 @@ name: playwright-orchestrator
 description: Central entrypoint for broad or ambiguous Playwright requests. Use when Codex needs to classify the user's testing goal, choose the right Playwright subskill, and move from intent to implementation, planning, documentation, execution, or reporting without unnecessary menu-driven back-and-forth.
 metadata:
   author: jovd83
-  version: "2.0.0"
+  version: 2.0.0
   dispatcher-category: testing
   dispatcher-capabilities: playwright-orchestration, playwright-routing
   dispatcher-accepted-intents: route_playwright_work, orchestrate_playwright_task

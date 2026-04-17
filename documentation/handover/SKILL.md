@@ -3,7 +3,7 @@ name: handover
 description: Use when Playwright work must be handed from one operator to another, including at task completion, during mid-task pauses, after a blocker, or before review. Create a structured handover that records what was completed, where execution stopped, what remains, validation status, blockers, and the exact steps to resume safely.
 metadata:
   author: jovd83
-  version: "2.0.0"
+  version: 2.0.0
   dispatcher-category: testing
   dispatcher-capabilities: handover, playwright-handover
   dispatcher-accepted-intents: create_playwright_handover

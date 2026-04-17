@@ -3,7 +3,7 @@ name: playwright-mapper-testrail
 description: Test-management mapping skill for TestRail. Use when Codex needs to apply authoritative TestRail case IDs back into local Playwright docs, titles, or annotations so automation can be traced or reported accurately.
 metadata:
   author: jovd83
-  version: "2.0.0"
+  version: 2.0.0
   dispatcher-category: testing
   dispatcher-capabilities: test-management-mapping, playwright-test-management-mapping
   dispatcher-accepted-intents: map_playwright_test_management_ids

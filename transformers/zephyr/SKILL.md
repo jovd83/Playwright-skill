@@ -3,7 +3,7 @@ name: playwright-transformer-zephyr
 description: Legacy Playwright-specific alias for Zephyr case export. Prefer the standalone `test-artifact-export-skill` skill for transforming approved test cases into Zephyr-ready artifacts, and use this only when Playwright-local conventions must be preserved explicitly.
 metadata:
   author: jovd83
-  version: "2.0.0"
+  version: 2.0.0
   dispatcher-category: testing
   dispatcher-capabilities: test-artifact-formatting, playwright-legacy-export-transform
   dispatcher-accepted-intents: render_test_artifact, export_test_cases

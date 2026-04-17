@@ -3,7 +3,7 @@ name: playwright-coverage-plan-review
 description: Coverage-plan review skill for Playwright work. Use when Codex needs to present a proposed coverage plan, surface assumptions and tradeoffs, collect user feedback, and secure explicit approval before large implementation or documentation work.
 metadata:
   author: jovd83
-  version: "2.0.0"
+  version: 2.0.0
   dispatcher-category: testing
   dispatcher-capabilities: coverage-plan-review, playwright-coverage-review
   dispatcher-accepted-intents: review_playwright_coverage_plan, approve_ui_test_scope

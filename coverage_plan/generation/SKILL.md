@@ -3,7 +3,7 @@ name: playwright-coverage-plan-generation
 description: Coverage-planning skill for Playwright work. Use when Codex needs to turn confirmed requirements into a structured, risk-aware Playwright coverage plan with scenarios, execution types, priorities, and traceability.
 metadata:
   author: jovd83
-  version: "2.0.0"
+  version: 2.0.0
   dispatcher-category: testing
   dispatcher-capabilities: coverage-planning, playwright-coverage-planning
   dispatcher-accepted-intents: plan_playwright_coverage, generate_ui_test_coverage_plan

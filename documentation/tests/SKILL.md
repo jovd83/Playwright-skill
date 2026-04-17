@@ -3,7 +3,7 @@ name: playwright-documentation-tests
 description: Automation-code documentation skill for Playwright suites. Use when Codex needs to add or improve human-readable comments, docblocks, or file-level explanations around existing Playwright tests without drowning the code in redundant commentary.
 metadata:
   author: jovd83
-  version: "2.0.0"
+  version: 2.0.0
   dispatcher-category: testing
   dispatcher-capabilities: automation-documentation, playwright-test-documentation
   dispatcher-accepted-intents: document_playwright_tests

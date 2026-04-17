@@ -3,7 +3,7 @@ name: playwright-mapper-testlink
 description: Test-management mapping skill for TestLink. Use when Codex needs to apply authoritative TestLink case IDs back into local Playwright docs, titles, or annotations so the repository can trace automation to imported TestLink records.
 metadata:
   author: jovd83
-  version: "2.0.0"
+  version: 2.0.0
   dispatcher-category: testing
   dispatcher-capabilities: test-management-mapping, playwright-test-management-mapping
   dispatcher-accepted-intents: map_playwright_test_management_ids
