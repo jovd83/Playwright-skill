@@ -14,15 +14,14 @@ metadata:
   dispatcher-writes-files: true
 ---
 
-# Playwright Core
-
-Use this skill for day-to-day Playwright implementation work. It is the foundation of the pack and should be the default path when the user wants tests written, fixed, or reviewed.
-
-
 ## Telemetry & Logging
 > [!IMPORTANT]
 > All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
-> `python scripts/dispatch_logger.py --skill <skill_name> --intent <intent> --reason <reason>`
+> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --reason <reason>` (or `./log-dispatch.sh` on Linux)
+
+# Playwright Core
+
+Use this skill for day-to-day Playwright implementation work. It is the foundation of the pack and should be the default path when the user wants tests written, fixed, or reviewed.
 
 ## Core Standards
 

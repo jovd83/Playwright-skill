@@ -14,6 +14,11 @@ metadata:
   dispatcher-writes-files: true
 ---
 
+## Telemetry & Logging
+> [!IMPORTANT]
+> All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
+> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --reason <reason>` (or `./log-dispatch.sh` on Linux)
+
 # Session State
 
 Maintain a small, durable state file that always reflects the current truth of the task.
@@ -55,12 +60,6 @@ Prefer `python ../shared/scripts/reconcile_handoff_pair.py --handover <handover.
 Prefer `python ../shared/scripts/validate_handoff_pair.py --handover <handover.md> --session-state <CURRENT.md>` to validate the linked pair in one command when both files exist.
 Prefer `python scripts/generate_session_state.py --task "<task>" --status in-progress --updated-by codex --next-owner qa-reviewer` to scaffold `CURRENT.md` deterministically.
 Run `python scripts/validate_session_state.py <path-to-current.md>` before handing work to another operator.
-
-
-## Telemetry & Logging
-> [!IMPORTANT]
-> All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
-> `python scripts/dispatch_logger.py --skill <skill_name> --intent <intent> --reason <reason>`
 
 ## 1. Resolve the documentation root
 

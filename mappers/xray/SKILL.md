@@ -14,15 +14,14 @@ metadata:
   dispatcher-writes-files: true
 ---
 
-# Xray Mapper
-
-Use this skill after Xray keys exist and the local repository needs to reflect them.
-
-
 ## Telemetry & Logging
 > [!IMPORTANT]
 > All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
-> `python scripts/dispatch_logger.py --skill <skill_name> --intent <intent> --reason <reason>`
+> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --reason <reason>` (or `./log-dispatch.sh` on Linux)
+
+# Xray Mapper
+
+Use this skill after Xray keys exist and the local repository needs to reflect them.
 
 ## Inputs
 
