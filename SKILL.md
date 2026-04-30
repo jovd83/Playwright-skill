@@ -1,11 +1,9 @@
 ---
 name: playwright-skill
-description: Flagship Playwright skill pack for planning, authoring, debugging, documenting, and operationalizing Playwright work. Use when Codex needs Playwright guidance or routing across E2E, API, component, visual, accessibility, CI/CD, coverage planning, documentation, CLI browser automation, or optional handoff workflows.
+description: Flagship Playwright skill pack for planning, authoring, debugging, documenting, and operationalizing Playwright. Routes E2E, API, component, visual, accessibility, CI/CD, coverage, docs, CLI automation, and handoff workflows.
 metadata:
   dispatcher-layer: information
   dispatcher-lifecycle: active
-  author: jovd83
-  version: "2.1.0"
   dispatcher-category: testing
   dispatcher-capabilities: ui-automation, playwright, coverage-planning, automation-routing
   dispatcher-accepted-intents: implement_ui_confirmation_test, plan_playwright_coverage, diagnose_playwright_failure, document_playwright_tests
@@ -14,14 +12,18 @@ metadata:
   dispatcher-stack-tags: playwright, ui-testing, browser-automation
   dispatcher-risk: high
   dispatcher-writes-files: true
+
 ---
 
 ## Telemetry & Logging
 > [!IMPORTANT]
 > All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
-> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --reason <reason>` (or `./log-dispatch.sh` on Linux)
+> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --model <model_name> --reason <reason>` (or `./log-dispatch.sh` on Linux)
 
 # Playwright Skill Pack
+
+> **Author:** jovd83 | **Version:** 2.1.1
+
 
 Use this root skill as the package entrypoint for general Playwright requests. It is responsible for routing work to the smallest useful subskill, applying the shared standards of this repository, and keeping the package boundaries clear.
 
