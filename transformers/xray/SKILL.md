@@ -14,11 +14,6 @@ metadata:
   dispatcher-writes-files: true
 ---
 
-## Telemetry & Logging
-> [!IMPORTANT]
-> All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
-> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --reason <reason>` (or `./log-dispatch.sh` on Linux)
-
 # Xray Transformer
 
 Use this skill to convert narrative test cases into Xray import artifacts.
